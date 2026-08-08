@@ -27,7 +27,13 @@
 				opacity: 1;
 				transform: translateY(0);
 			}
+			p {
+				line-height: 1.6 !important;
+			}
 			@media screen and (max-width: 840px) {
+				p {
+					text-align: left !important;
+				}
 				#header nav#nav {
 					display: none !important;
 				}
@@ -38,6 +44,21 @@
 				.container {
 					padding-left: 0.5cm !important;
 					padding-right: 0.5cm !important;
+				}
+				.anchor-nav {
+					white-space: nowrap !important;
+					overflow-x: auto !important;
+					-webkit-overflow-scrolling: touch !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+				.anchor-nav a {
+					margin: 0 0.35em !important;
+					font-size: 0.7em !important;
+				}
+				.value-card {
+					grid-template-columns: 1fr !important;
+					grid-template-areas: "title" "img" "desc" !important;
 				}
 			}
 		</style>
@@ -66,7 +87,7 @@
 				</section>
 
 			<!-- Anchor Nav -->
-				<section class="container" style="padding: 2em 0 1em 0; text-align: center;">
+				<section class="container anchor-nav" style="padding: 2em 0 1em 0; text-align: center;">
 					<a href="#searchfund" style="display: inline-block; margin: 0 1.5em; color: #c62828; font-weight: 700; text-decoration: none; border-bottom: solid 2px #c62828; padding-bottom: 0.2em;">サーチファンドとは</a>
 					<a href="#value" style="display: inline-block; margin: 0 1.5em; color: #c62828; font-weight: 700; text-decoration: none; border-bottom: solid 2px #c62828; padding-bottom: 0.2em;">私たちの提供価値</a>
 					<a href="#team" style="display: inline-block; margin: 0 1.5em; color: #c62828; font-weight: 700; text-decoration: none; border-bottom: solid 2px #c62828; padding-bottom: 0.2em;">チーム（投資家）</a>
@@ -91,31 +112,31 @@
 					<h2 style="font-size: 1.6em; font-weight: 900; color: #c62828; border-bottom: solid 3px #c62828; padding-bottom: 0.5em; margin: 0 0 3em 0;">私たちの提供価値</h2>
 
 					<!-- Value 01 -->
-					<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 3em; margin-bottom: 4em;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">01</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">顔の見える事業承継</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'title img' 'desc img'; align-items: center; gap: 1em 3em; margin-bottom: 4em;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">01</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">顔の見える事業承継</h3>
+						</div>
+						<img src="images/価値１.jpg" alt="顔の見える事業承継" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">私たちは、一社にのみ責任をもって全力で向き合います。</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">事業会社やPEファンドによる事業承継の場合、承継が決まった後に、後任の経営者を採用することが一般的です。</p>
 							<p style="margin: 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">弊社は、代表の吉川が自ら後継者として、有望な企業様一社の経営に人生をかけて向き合います。オーナー様が築き上げてきた大切な会社、想いをしっかりと引継ぎ、全力で経営に専念します。</p>
 						</div>
-						<img src="images/価値１.jpg" alt="顔の見える事業承継" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
 					</div>
 
 					<!-- Value 02 -->
-					<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3em; margin-bottom: 4em;">
-						<img src="images/価値２.png" alt="計画を描き、共に手を動かす経営" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">02</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">計画を描き、共に手を動かす経営</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'img title' 'img desc'; align-items: center; gap: 1em 3em; margin-bottom: 4em;">
+						<img src="images/価値２.png" alt="計画を描き、共に手を動かす経営" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">02</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">計画を描き、共に手を動かす経営</h3>
+						</div>
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">計画を描くだけでなく、自ら手を動かして成果を出します。</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">代表は、これまで中期経営計画や新規事業の立ち上げなど計画を立てるだけでなく、現場の実行も多数経験してきました。</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">お客様と開発した新商品を、一緒になり販売し、数億円規模の売上を立てました。<br>日米600店舗弱を対象とした業務プロセスをITを駆使し改善し、現地スタッフと机を並べて定着化まで担当し、数億円規模のコスト削減を実現しました。<br>また、後継者不在に悩む中小企業（介護事業者）の経営移管に向け、若手社員へのハンズオントレーニングを共に実施し、定着化しました。</p>
@@ -124,31 +145,31 @@
 					</div>
 
 					<!-- Value 03 -->
-					<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 3em; margin-bottom: 4em;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">03</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">新サービスの企画、新規顧客の拡大</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'title img' 'desc img'; align-items: center; gap: 1em 3em; margin-bottom: 4em;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">03</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">新サービスの企画、新規顧客の拡大</h3>
+						</div>
+						<img src="images/価値３.jpg" alt="新サービスの企画、新規顧客の拡大" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">既存のお客様を大切にしながら、新しい売上の柱をつくり出します。</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">これまで、ITを活用した新商品・サービスの企画・実行、またデータに基づくマーケティング施策の実行を通じて、新規顧客の獲得を進めてきました。</p>
 							<p style="margin: 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">既存のお客様との信頼関係大切にしながら、新しい商機を見出し、会社の売上拡大・成長として結実させます。</p>
 						</div>
-						<img src="images/価値３.jpg" alt="新サービスの企画、新規顧客の拡大" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
 					</div>
 
 					<!-- Value 04 -->
-					<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3em;">
-						<img src="images/価値４.png" alt="多様な経験を持つチームによるバックアップ" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">04</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">多様な経験を持つチームによるバックアップ</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'img title' 'img desc'; align-items: center; gap: 1em 3em;">
+						<img src="images/価値４.png" alt="多様な経験を持つチームによるバックアップ" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">04</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">多様な経験を持つチームによるバックアップ</h3>
+						</div>
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">弊社は、4か国18法人（人）による支援で設立された法人です。代表一人の力だけでなく、チームとして経営に向き合います。</p>
 							<p style="margin: 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">事業会社、投資会社、経営者など多様なバックグラウンドを持ち、業界や各種専門に精通するプロフェッショナル達と共に、チームとしてオーナー様が育ててこられた会社と向き合います。</p>
 						</div>

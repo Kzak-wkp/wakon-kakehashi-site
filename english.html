@@ -30,7 +30,13 @@
 				opacity: 1;
 				transform: translateY(0);
 			}
+			p {
+				line-height: 1.6 !important;
+			}
 			@media screen and (max-width: 840px) {
+				p {
+					text-align: left !important;
+				}
 				#header nav#nav {
 					display: none !important;
 				}
@@ -41,6 +47,10 @@
 				.container {
 					padding-left: 0.5cm !important;
 					padding-right: 0.5cm !important;
+				}
+				.value-card {
+					grid-template-columns: 1fr !important;
+					grid-template-areas: "title" "img" "desc" !important;
 				}
 			}
 		</style>
@@ -206,7 +216,7 @@
 				<section id="searchfund" class="container reveal-on-scroll" style="padding: 3em 0 1em 0;">
 					<h2 style="font-size: 1.6em; font-weight: 900; color: #c62828; border-bottom: solid 3px #c62828; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none;">What Is a Search Fund?</h2>
 					<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2.5em;">
-						<img src="images/スキーム図.png" alt="How a search fund works" style="flex: 1 1 380px; display: block; width: 100%; max-width: 460px; height: auto;">
+						<img src="images/Scheme Diagram.png" alt="How a search fund works" style="flex: 1 1 380px; display: block; width: 100%; max-width: 460px; height: auto;">
 						<div style="flex: 1 1 380px;">
 							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">A search fund is a mechanism in which an individual aspiring to become a business owner (a "searcher") works with the support of investors to find and take over a company facing a shortage of successors, then grows as its owner-operator.</p>
 							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">The model originated at Stanford University in the United States in 1984, and more than 1,200 searchers are already active worldwide, primarily across Europe and the Americas.</p>
@@ -221,31 +231,31 @@
 					<h2 style="font-size: 1.6em; font-weight: 900; color: #c62828; border-bottom: solid 3px #c62828; padding-bottom: 0.5em; margin: 0 0 3em 0; text-transform: none;">Our Value</h2>
 
 					<!-- Value 01 -->
-					<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 3em; margin-bottom: 4em;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">01</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">Business Succession With a Familiar Face</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'title img' 'desc img'; align-items: center; gap: 1em 3em; margin-bottom: 4em;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">01</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">Business Succession With a Familiar Face</h3>
+						</div>
+						<img src="images/価値１.jpg" alt="Business succession with a familiar face" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">We commit fully and responsibly to just one company.</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">In business succession led by operating companies or PE funds, it is common for the successor management to be hired only after the deal itself has been decided.</p>
 							<p style="margin: 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">At our firm, our representative, Yoshikawa, personally commits his career as the successor, dedicating himself to the management of a single promising company. We carefully inherit the precious company and the vision the owner has built, and devote ourselves fully to its management.</p>
 						</div>
-						<img src="images/価値１.jpg" alt="Business succession with a familiar face" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
 					</div>
 
 					<!-- Value 02 -->
-					<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3em; margin-bottom: 4em;">
-						<img src="images/価値２.png" alt="Management That Plans — and Rolls Up Its Sleeves" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">02</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">Management That Plans — and Rolls Up Its Sleeves</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'img title' 'img desc'; align-items: center; gap: 1em 3em; margin-bottom: 4em;">
+						<img src="images/価値２.png" alt="Management That Plans — and Rolls Up Its Sleeves" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">02</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">Management That Plans — and Rolls Up Its Sleeves</h3>
+						</div>
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">We don't just draw up plans — we roll up our sleeves and deliver results ourselves.</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">Our representative has experience not only in formulating mid-term management plans and launching new businesses, but also in extensive hands-on execution in the field.</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">Working together with clients on new products we co-developed, we jointly drove sales and generated revenue in the hundreds of millions of yen.<br>We used IT to improve operating processes across nearly 600 stores in Japan and the U.S., working side by side with local staff through to full adoption, achieving cost savings in the hundreds of millions of yen.<br>We also supported the management transition of an SME (a caregiving provider) facing a successor shortage, jointly conducting hands-on training for junior employees through to full adoption.</p>
@@ -254,31 +264,31 @@
 					</div>
 
 					<!-- Value 03 -->
-					<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 3em; margin-bottom: 4em;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">03</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">New Service Development and Customer Growth</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'title img' 'desc img'; align-items: center; gap: 1em 3em; margin-bottom: 4em;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">03</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">New Service Development and Customer Growth</h3>
+						</div>
+						<img src="images/価値３.jpg" alt="New Service Development and Customer Growth" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">While valuing our existing customers, we build new pillars of revenue.</p>
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">We have driven new customer acquisition through IT-enabled planning and execution of new products and services, as well as data-driven marketing initiatives.</p>
 							<p style="margin: 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">Building on the trust we have earned with existing customers, we uncover new business opportunities and turn them into real growth in the company's revenue.</p>
 						</div>
-						<img src="images/価値３.jpg" alt="New Service Development and Customer Growth" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
 					</div>
 
 					<!-- Value 04 -->
-					<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3em;">
-						<img src="images/価値４.png" alt="Backed by a Team of Diverse Experience" style="flex: 1 1 400px; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
-						<div style="flex: 1 1 400px;">
-							<div style="display: flex; align-items: flex-start; gap: 1em; margin-bottom: 0.8em;">
-								<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
-									<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">04</span>
-								</div>
-								<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">Backed by a Team of Diverse Experience</h3>
+					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'img title' 'img desc'; align-items: center; gap: 1em 3em;">
+						<img src="images/価値４.png" alt="Backed by a Team of Diverse Experience" style="grid-area: img; width: 100%; max-width: 480px; aspect-ratio: 4 / 3; object-fit: cover; display: block;">
+						<div style="grid-area: title; display: flex; align-items: flex-start; gap: 1em;">
+							<div style="position: relative; width: 50px; height: 72px; flex-shrink: 0; background: #5c1f1f; clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);">
+								<span style="position: absolute; top: 0.15em; left: 0; width: 100%; text-align: center; color: #fff; font-size: 1.7em; font-weight: 900;">04</span>
 							</div>
+							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222; text-transform: none;">Backed by a Team of Diverse Experience</h3>
+						</div>
+						<div style="grid-area: desc;">
 							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">Our firm was established with the backing of 18 supporters (individuals and entities) across four countries. We approach management not as one person alone, but as a team.</p>
 							<p style="margin: 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">Together with professionals from diverse backgrounds — operating companies, investment firms, business owners — each deeply versed in their industry or specialty, we engage as a team with the company the owner has built.</p>
 						</div>

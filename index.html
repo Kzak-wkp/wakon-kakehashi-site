@@ -30,7 +30,13 @@
 				opacity: 1;
 				transform: translateY(0);
 			}
+			p {
+				line-height: 1.6 !important;
+			}
 			@media screen and (max-width: 840px) {
+				p {
+					text-align: left !important;
+				}
 				#header nav#nav {
 					display: none !important;
 				}
@@ -41,6 +47,27 @@
 				.container {
 					padding-left: 0.5cm !important;
 					padding-right: 0.5cm !important;
+				}
+				#banner .inner {
+					padding: 1.5em !important;
+					box-sizing: border-box !important;
+				}
+				#banner .inner > div {
+					flex-direction: column !important;
+					align-items: flex-start !important;
+					gap: 1em !important;
+				}
+				#banner img {
+					max-width: 60% !important;
+					max-height: 130px !important;
+				}
+				#banner h2 {
+					font-size: 1.5em !important;
+					overflow-wrap: break-word !important;
+					word-break: break-word !important;
+				}
+				#banner p {
+					font-size: 1em !important;
 				}
 			}
 		</style>

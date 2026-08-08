@@ -27,7 +27,13 @@
 				opacity: 1;
 				transform: translateY(0);
 			}
+			p {
+				line-height: 1.6 !important;
+			}
 			@media screen and (max-width: 840px) {
+				p {
+					text-align: left !important;
+				}
 				#header nav#nav {
 					display: none !important;
 				}
@@ -38,6 +44,17 @@
 				.container {
 					padding-left: 0.5cm !important;
 					padding-right: 0.5cm !important;
+				}
+				.anchor-nav {
+					white-space: nowrap !important;
+					overflow-x: auto !important;
+					-webkit-overflow-scrolling: touch !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+				.anchor-nav a {
+					margin: 0 0.35em !important;
+					font-size: 0.7em !important;
 				}
 			}
 		</style>
@@ -66,7 +83,7 @@
 				</section>
 
 			<!-- Anchor Nav -->
-				<section class="container" style="padding: 2em 0 1em 0; text-align: center;">
+				<section class="container anchor-nav" style="padding: 2em 0 1em 0; text-align: center;">
 					<a href="#greeting" style="display: inline-block; margin: 0 1.5em; color: #c62828; font-weight: 700; text-decoration: none; border-bottom: solid 2px #c62828; padding-bottom: 0.2em;">代表挨拶</a>
 					<a href="#overview" style="display: inline-block; margin: 0 1.5em; color: #c62828; font-weight: 700; text-decoration: none; border-bottom: solid 2px #c62828; padding-bottom: 0.2em;">会社概要</a>
 					<a href="#access" style="display: inline-block; margin: 0 1.5em; color: #c62828; font-weight: 700; text-decoration: none; border-bottom: solid 2px #c62828; padding-bottom: 0.2em;">アクセス</a>
