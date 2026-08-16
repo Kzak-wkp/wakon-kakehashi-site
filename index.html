@@ -39,6 +39,30 @@
 			* {
 				font-family: 'Meiryo UI', 'Meiryo', sans-serif !important;
 			}
+			.banner-slide {
+				position: absolute;
+				inset: 0;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				will-change: transform, opacity;
+				animation-play-state: paused;
+			}
+			#banner.slideshow-active .banner-slide {
+				animation-play-state: running;
+			}
+			.banner-slide-1 { animation: bannerFade1 16s ease-in-out infinite paused, bannerZoom1 16s ease-in-out infinite paused; }
+			.banner-slide-2 { animation: bannerFade2 16s ease-in-out infinite paused, bannerZoom2 16s ease-in-out infinite paused; }
+			.banner-slide-3 { animation: bannerFade3 16s ease-in-out infinite paused, bannerZoom3 16s ease-in-out infinite paused; }
+			.banner-slide-4 { animation: bannerFade4 16s ease-in-out infinite paused, bannerZoom4 16s ease-in-out infinite paused; }
+			@keyframes bannerFade1 { 0% { opacity: 1; } 20.3125% { opacity: 1; } 25% { opacity: 0; } 95.3125% { opacity: 0; } 100% { opacity: 1; } }
+			@keyframes bannerFade2 { 0% { opacity: 0; } 20.3125% { opacity: 0; } 25% { opacity: 1; } 45.3125% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
+			@keyframes bannerFade3 { 0% { opacity: 0; } 45.3125% { opacity: 0; } 50% { opacity: 1; } 70.3125% { opacity: 1; } 75% { opacity: 0; } 100% { opacity: 0; } }
+			@keyframes bannerFade4 { 0% { opacity: 0; } 70.3125% { opacity: 0; } 75% { opacity: 1; } 95.3125% { opacity: 1; } 100% { opacity: 0; } }
+			@keyframes bannerZoom1 { 0% { transform: scale(1); } 20.3125% { transform: scale(1.05); } 100% { transform: scale(1); } }
+			@keyframes bannerZoom2 { 0% { transform: scale(1.05); } 25% { transform: scale(1.05); } 50% { transform: scale(1); } 100% { transform: scale(1); } }
+			@keyframes bannerZoom3 { 0% { transform: scale(1); } 50% { transform: scale(1); } 75% { transform: scale(1.05); } 100% { transform: scale(1.05); } }
+			@keyframes bannerZoom4 { 0% { transform: scale(1.05); } 75% { transform: scale(1.05); } 100% { transform: scale(1); } }
 			.reveal-on-scroll {
 				opacity: 0;
 				transform: translateY(40px);
@@ -120,7 +144,12 @@
 				</header>
 
 			<!-- Banner -->
-				<section id="banner" style="margin-top: 73px; padding-top: 40px; background-image: url('images/header.png'); background-position: center; background-size: cover; background-attachment: scroll;">
+				<section id="banner" style="margin-top: 73px; padding-top: 40px; position: relative; overflow: hidden;">
+
+					<div class="banner-slide banner-slide-1" style="background-image: url('images/header.png');"></div>
+					<div class="banner-slide banner-slide-2" style="background-image: url('images/header 2.png');"></div>
+					<div class="banner-slide banner-slide-3" style="background-image: url('images/header 3.png');"></div>
+					<div class="banner-slide banner-slide-4" style="background-image: url('images/header 4.png');"></div>
 
 					<!--
 						".inner" is set up as an inline-block so it automatically expands
@@ -128,7 +157,7 @@
 						automatically wrap lines, so be sure to use line breaks where
 						appropriate (<br />).
 					-->
-					<div class="inner" style="max-width: 92%; width: 1150px; background: rgba(255, 255, 255, 0.8);">
+					<div class="inner" style="position: relative; z-index: 1; max-width: 92%; width: 1150px; background: rgba(255, 255, 255, 0.7);">
 
 						<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 2em; text-align: left;">
 
@@ -136,7 +165,7 @@
 
 							<div style="flex: 1; min-width: 280px;">
 								<h2 style="font-family: 'Noto Serif JP', 'Meiryo UI', serif !important; font-size: 2.6em; font-weight: 900; letter-spacing: normal; text-transform: none; text-align: left; margin: 0 0 0.4em 0; border: none; color: #333;"><span style="color: #c62828;">想い</span>の"かけはし"となる</h2>
-								<p style="font-family: 'Noto Serif JP', 'Meiryo UI', serif !important; font-size: 1.35em; font-weight: 400; letter-spacing: normal; text-transform: none; text-align: left; opacity: 1; margin: 0; color: #222;">経営者・従業員の想い、会社の未来を、<br>事業承継を通じて未来に繋げます</p>
+								<p style="font-family: 'Noto Serif JP', 'Meiryo UI', serif !important; font-size: 1.35em; font-weight: 500; letter-spacing: normal; text-transform: none; text-align: left; opacity: 1; margin: 0; color: #222;">経営者・従業員の想い、会社の未来を、<br>事業承継を通じて未来に繋げます</p>
 							</div>
 
 						</div>
@@ -146,7 +175,7 @@
 				</section>
 
 			<!-- Message -->
-				<section class="container reveal-on-scroll" style="padding: 3em 0;">
+				<section id="message-section" class="container reveal-on-scroll" style="padding: 3em 0;">
 					<div class="msg-box" style="display: flex; flex-wrap: wrap; align-items: center; background: #e3eefb;">
 
 						<div class="msg-photo-col" style="flex: 0 1 330px; display: flex; flex-direction: column; align-items: center; padding: 2em 0;">
@@ -199,15 +228,24 @@
 			<script>
 				document.addEventListener('DOMContentLoaded', function () {
 					var revealEls = document.querySelectorAll('.reveal-on-scroll');
+					var banner = document.getElementById('banner');
+					var messageSection = document.getElementById('message-section');
 					var observer = new IntersectionObserver(function (entries) {
 						entries.forEach(function (entry) {
 							if (entry.isIntersecting) {
 								entry.target.classList.add('is-visible');
 								observer.unobserve(entry.target);
+								if (banner && entry.target === messageSection) {
+									entry.target.addEventListener('transitionend', function () {
+										banner.classList.add('slideshow-active');
+									}, { once: true });
+								}
 							}
 						});
 					}, { threshold: 0.15 });
-					revealEls.forEach(function (el) { observer.observe(el); });
+					setTimeout(function () {
+						revealEls.forEach(function (el) { observer.observe(el); });
+					}, 1400);
 				});
 			</script>
 
