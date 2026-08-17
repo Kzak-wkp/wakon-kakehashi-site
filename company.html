@@ -50,6 +50,20 @@
 				p.rep-name-block {
 					margin: 2.5em 0 3em 0 !important;
 				}
+				.greet-sticky-photo {
+					position: static !important;
+					height: 260px !important;
+				}
+				.greet-sticky-photo img {
+					object-position: center 15% !important;
+					-webkit-mask-image: none !important;
+					mask-image: none !important;
+				}
+				.greet-overlay-text {
+					background: none !important;
+					padding: 1.5em 0 0 0 !important;
+					margin-top: 1em !important;
+				}
 				#header nav#nav {
 					display: none !important;
 				}
@@ -86,7 +100,7 @@
 							<li><a href="index.html">TOP</a></li>
 							<li class="current"><a href="company.html">会社概要</a></li>
 							<li><a href="business.html">事業内容</a></li>
-							<li><a href="contact.html" style="display: inline-flex; align-items: center; gap: 0.5em; background: #005BAA; color: #fff; padding: 0.6em 1.4em; border-radius: 999px;"><span class="icon solid fa-envelope" style="color: #fff;"></span>お問い合わせ・採用希望</a></li>
+							<li><a href="contact.html" style="display: inline-flex; align-items: center; gap: 0.5em; background: #005BAA; color: #fff; padding: 0.6em 1.4em; border-radius: 999px; border-bottom: none;"><span class="icon solid fa-envelope" style="color: #fff;"></span>お問い合わせ・採用希望</a></li>
 							<li><a href="english.html">English</a></li>
 						</ul>
 					</nav>
@@ -106,23 +120,26 @@
 				</section>
 
 			<!-- Greeting -->
-				<section id="greeting" class="container reveal-on-scroll" style="padding: 3em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 2em 0;">代表挨拶</h2>
-					<div style="text-align: left; margin: 0 0 2em 0;">
-						<img src="images/Picture3.jpg" alt="代表 吉川和明" style="width: 100%; max-width: 760px; display: block; margin: 0;">
-					</div>
-					<div>
-						<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">はじめまして。私は、神奈川県横浜市の出身で、町工場に勤める親のもとで育ちました。<br>大学卒業後は、経営コンサルティング会社にて約8年間、企業の新規事業立ち上げ、及び営業活動による新規顧客開拓、営業改革、M&amp;A支援などを戦略立案から実行まで一貫して担当してまいりました。その後、経営をより深く学ぶためIESE Business School(スペイン)のMBA課程に進学しました。</p>
-						<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">数多くのお客様の現場に入り、経営課題と向き合ってきました。私が大切にしてきたのは、戦略や計画を描くだけでなく、実際にお客様と机を並べ、新商品の販売現場に立ち、新しい業務が定着するまで一緒に汗をかきながら実務を積み重ねることでした。その中で強く感じたのは、経営とは数字の改善だけでなく、そこで働く人々や築き上げてきた文化を大切にしながら前に進めるものだということです。</p>
-						<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">私は、本取り組みを通じて、単なる投資家としてではなく、一人の経営者として会社を引き継ぎ、机を並べて事業を進め、社員の雇用を守り、さらなる成長を実現してまいります。私たちは一社に集中し、長期的な視点で経営に責任を持ちます。<br>築き上げてこられた事業と想いを、次の世代に丁寧につないでいく。その役割を担わせていただく所存です。</p>
-						<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">サーチファンドは、それを実現できる仕組みです。<br>私自身、向き合っていく会社をよりよい状態で未来につないでいきます。<br>更には、サーチファンドの成功事例をつくることで、将来的な業界拡大、後継者不足の問題に一石を投じてまいります。</p>
+				<section id="greeting" class="container reveal-on-scroll" style="padding: 3em 0 1em 0;">
+					<div class="greet-sticky-wrap" style="position: relative;">
+						<h2 style="position: sticky; top: 73px; z-index: 5; font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 1em 0; background: #f3f6fa;">代表挨拶</h2>
+						<div class="greet-sticky-photo" style="position: sticky; top: 163px; z-index: 0; width: 100%; max-width: 760px; aspect-ratio: 3404 / 2156; margin: 0 0 0 auto; overflow: hidden;">
+							<img src="images/Picture3.jpg" alt="代表社員　吉川　和明" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% center; display: block; -webkit-mask-image: radial-gradient(circle 320px at 50% 45%, black 55%, rgba(0,0,0,0.55) 100%); mask-image: radial-gradient(circle 320px at 50% 45%, black 55%, rgba(0,0,0,0.55) 100%);">
+						</div>
 
-						<p class="rep-name-block" style="color: #333f4d; margin: 0 0 1.5em 0; font-size: 0.85em; text-align: left; line-height: 1.7;">
-							和魂かけはしパートナーズ合同会社<br>
-						代表社員　吉川　和明<a href="https://www.linkedin.com/in/kyoshikawa" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-left: 0.4em; vertical-align: middle; border-bottom: none; position: relative; top: -0.15em;"><img src="images/linkedin.png" alt="LinkedIn" style="width: 100%; height: 100%; object-fit: contain; display: block;"></a>
-						</p>
+						<div class="greet-overlay-text" style="position: relative; z-index: 1; background: rgba(243,246,250,0.78); padding: 1em 2em 0.8em 2em; margin-top: 0;">
+							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">はじめまして。私は、神奈川県横浜市の出身で、町工場に勤める親のもとで育ちました。<br>大学卒業後は、経営コンサルティング会社にて約8年間、企業の新規事業立ち上げ、及び営業活動による新規顧客開拓、営業改革、M&amp;A支援などを戦略立案から実行まで一貫して担当してまいりました。その後、経営をより深く学ぶためIESE Business School(スペイン)のMBA課程に進学しました。</p>
+							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">数多くのお客様の現場に入り、経営課題と向き合ってきました。私が大切にしてきたのは、戦略や計画を描くだけでなく、実際にお客様と机を並べ、新商品の販売現場に立ち、新しい業務が定着するまで一緒に汗をかきながら実務を積み重ねることでした。その中で強く感じたのは、経営とは数字の改善だけでなく、そこで働く人々や築き上げてきた文化を大切にしながら前に進めるものだということです。</p>
+							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">私は、本取り組みを通じて、単なる投資家としてではなく、一人の経営者として会社を引き継ぎ、机を並べて事業を進め、社員の雇用を守り、さらなる成長を実現してまいります。私たちは一社に集中し、長期的な視点で経営に責任を持ちます。<br>築き上げてこられた事業と想いを、次の世代に丁寧につないでいく。その役割を担わせていただく所存です。</p>
+							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">サーチファンドは、それを実現できる仕組みです。<br>私自身、向き合っていく会社をよりよい状態で未来につないでいきます。<br>更には、サーチファンドの成功事例をつくることで、将来的な業界拡大、後継者不足の問題に一石を投じてまいります。</p>
 
-						<div style="background: #e3eefb; padding: 1.5em 2em; margin: 0;">
+							<p class="rep-name-block" style="color: #333f4d; margin: 0; font-size: 0.95em; text-align: left; line-height: 1.8;">
+								和魂かけはしパートナーズ合同会社<br>
+							代表社員　吉川　和明<a href="https://www.linkedin.com/in/kyoshikawa" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-left: 0.4em; vertical-align: middle; border-bottom: none; position: relative; top: -0.15em;"><img src="images/linkedin.png" alt="LinkedIn" style="width: 100%; height: 100%; object-fit: contain; display: block;"></a>
+							</p>
+						</div>
+
+						<div style="position: relative; z-index: 1; background: rgba(227,238,251,0.7); padding: 1.5em 2em; margin-top: 1.2em;">
 							<p style="margin: 0 0 0.8em 0; font-weight: 700; color: #0B2F6B;">略歴</p>
 							<ul style="list-style: none; margin: 0; padding: 0; color: #333f4d; font-size: 0.9em; line-height: 1.9;">
 								<li style="display: flex; margin-bottom: 0.4em;"><span style="width: 105px; flex-shrink: 0;">2016-2024</span><span>経営コンサルティング会社 勤務（戦略立案、M&amp;A、新商品/サービス開発、営業・新規顧客開拓、海外進出、営業業務改善・デジタル化、等）</span></li>
@@ -142,8 +159,8 @@
 				</section>
 
 			<!-- Company Overview Table -->
-				<section id="overview" class="container reveal-on-scroll" style="padding: 3em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 2em 0;">会社概要</h2>
+				<section id="overview" class="container reveal-on-scroll" style="padding: 1em 0 3em 0;">
+					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 2em 0; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">会社概要</h2>
 					<div style="max-width: 800px;">
 						<div style="display: flex; flex-wrap: wrap; padding: 1em 0; border-bottom: solid 1px #8FB8E0;">
 							<div style="width: 180px; font-weight: 700; color: #0B2F6B;">会社名</div>
@@ -180,7 +197,7 @@
 
 			<!-- Access -->
 				<section id="access" class="container reveal-on-scroll" style="padding: 3em 0 4em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 1.5em 0;">アクセス</h2>
+					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 1.5em 0; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">アクセス</h2>
 					<p style="color: #333f4d; margin: 0 0 1.5em 0;">〒141-0021　東京都品川区上大崎3丁目14番34号</p>
 					<div style="width: 100%; height: 360px;">
 						<iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%93%81%E5%B7%9D%E5%8C%BA%E4%B8%8A%E5%A4%A7%E5%B4%8E3-14-34&output=embed" style="width: 100%; height: 100%; border: 0;" loading="lazy"></iframe>
@@ -192,7 +209,7 @@
 					<img src="images/corp logo.png" alt="和魂かけはしパートナーズ" style="max-height: 90px; margin: 0 auto 1em auto; display: block;">
 					<p style="margin: 0 0 1em 0; font-size: 0.85em; opacity: 0.9;">和魂かけはしパートナーズ合同会社<br>〒141-0021　東京都品川区上大崎3丁目14番34号</p>
 					<p style="margin: 0 0 1.5em 0; font-size: 0.85em; opacity: 0.8;">Copyright &copy; Wakon Kakehashi Partners All Rights Reserved.</p>
-					<a href="contact.html" style="display: inline-block; background: #fff; color: #0B2F6B; padding: 0.8em 2.5em; border-radius: 999px; text-decoration: none; font-weight: 700;">お問い合わせ・採用希望</a>
+					<a href="contact.html" style="display: inline-block; background: #fff; color: #0B2F6B; padding: 0.8em 2.5em; border-radius: 999px; text-decoration: none; font-weight: 700; border-bottom: none;">お問い合わせ・採用希望</a>
 				</footer>
 
 		</div>
@@ -218,6 +235,18 @@
 						});
 					}, { threshold: 0.15 });
 					revealEls.forEach(function (el) { observer.observe(el); });
+
+					var greetHeading = document.querySelector('#greeting h2');
+					var greetPhoto = document.querySelector('.greet-sticky-photo');
+					if (greetHeading && greetPhoto) {
+						var syncGreetPhotoTop = function () {
+							var headingTop = parseFloat(getComputedStyle(greetHeading).top) || 0;
+							var headingBottomMargin = parseFloat(getComputedStyle(greetHeading).marginBottom) || 0;
+							greetPhoto.style.top = (headingTop + greetHeading.offsetHeight + headingBottomMargin) + 'px';
+						};
+						syncGreetPhotoTop();
+						window.addEventListener('resize', syncGreetPhotoTop);
+					}
 				});
 			</script>
 

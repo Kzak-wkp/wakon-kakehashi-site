@@ -76,6 +76,20 @@
 				.greet-row {
 					gap: 1.5em !important;
 				}
+				.greet-sticky-photo {
+					position: static !important;
+					height: 260px !important;
+				}
+				.greet-sticky-photo img {
+					object-position: center 15% !important;
+					-webkit-mask-image: none !important;
+					mask-image: none !important;
+				}
+				.greet-overlay-text {
+					background: none !important;
+					padding: 1.5em 0 0 0 !important;
+					margin-top: 1em !important;
+				}
 				#header nav#nav {
 					display: none !important;
 				}
@@ -124,7 +138,7 @@
 					<nav id="nav" style="position: static; top: auto; right: auto;">
 						<ul style="margin: 0;">
 							<li class="current"><a href="english.html">English</a></li>
-							<li><a href="contact-en.html" style="display: inline-flex; align-items: center; gap: 0.5em; background: #005BAA; color: #fff; padding: 0.6em 1.4em; border-radius: 999px;"><span class="icon solid fa-envelope" style="color: #fff;"></span>Contact / Careers</a></li>
+							<li><a href="contact-en.html" style="display: inline-flex; align-items: center; gap: 0.5em; background: #005BAA; color: #fff; padding: 0.6em 1.4em; border-radius: 999px; border-bottom: none;"><span class="icon solid fa-envelope" style="color: #fff;"></span>Contact / Careers</a></li>
 							<li><a href="index.html">日本語</a></li>
 						</ul>
 					</nav>
@@ -195,47 +209,49 @@
 				</section>
 
 			<!-- Greeting -->
-				<section id="greeting" class="container reveal-on-scroll" style="padding: 3em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none;">Message from the Representative</h2>
-					<div class="greet-row" style="display: flex; flex-wrap: wrap; gap: 3em; align-items: flex-start;">
-						<div style="flex: 0 1 330px; text-align: center;">
-							<img src="images/Picture2.jpg" alt="Representative Kazuaki Yoshikawa" style="width: 85%; max-width: 330px; display: block; margin: 0 auto;">
-							<p class="text-center" style="color: #333f4d; margin: 1em 0 0 0; font-size: 0.85em; text-align: center; line-height: 1.7;">
-								Wakon Kakehashi Partners, LLC<br>
-								Representative Partner, <br>
-								Kazuaki Yoshikawa<a href="https://www.linkedin.com/in/kyoshikawa" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-left: 0.4em; vertical-align: middle; border-bottom: none; position: relative; top: -0.15em;"><img src="images/linkedin.png" alt="LinkedIn" style="width: 100%; height: 100%; object-fit: contain; display: block;"></a>
-							</p>
+				<section id="greeting" class="container reveal-on-scroll" style="padding: 3em 0 1em 0;">
+					<div class="greet-sticky-wrap" style="position: relative;">
+						<h2 style="position: sticky; top: 73px; z-index: 5; font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none; background: #f3f6fa;">Message from the Representative</h2>
+						<div class="greet-sticky-photo" style="position: sticky; top: 188px; z-index: 0; height: 420px; max-width: 525px; margin: 0 0 0 auto; overflow: hidden;">
+							<img src="images/Picture 2.png" alt="Representative Kazuaki Yoshikawa" style="width: 100%; height: 100%; object-fit: cover; object-position: 68% 10%; display: block; -webkit-mask-image: radial-gradient(circle 400px at 76% 45%, black 35%, transparent 100%); mask-image: radial-gradient(circle 400px at 76% 45%, black 35%, transparent 100%);">
 						</div>
-						<div style="flex: 1 1 400px;">
+
+						<div class="greet-overlay-text" style="position: relative; z-index: 1; background: rgba(243,246,250,0.78); padding: 2em 2em 0.8em 2em; margin-top: 0;">
 							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">Hello, my name is Kazuaki Yoshikawa. I was born and raised in Yokohama, Kanagawa, by a parent who worked at a small local factory.<br>After graduating from university, I spent about eight years at a management consulting firm, where I was involved end-to-end — from strategy design through execution — in launching new businesses, new customer acquisition, sales reform, and M&amp;A support. I later enrolled in the MBA program at IESE Business School in Spain to deepen my understanding of management.</p>
 							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">I have worked on-site with numerous clients, confronting their management challenges directly. What I have always valued is not just drawing up strategies and plans, but sitting side by side with clients, standing on the front lines of new product sales, and putting in the hands-on work together until new processes truly took hold. Through this, I came to strongly feel that management is not only about improving numbers — it is about moving forward while cherishing the people who work there and the culture they have built.</p>
 							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">When the small factory my parent worked at closed simply because it could not find a successor, it brought home to me that a lack of successors is a challenge facing many small and medium-sized enterprises across Japan.</p>
 							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">Rather than acting merely as an investor, I intend to take over a company as an owner-operator — protecting employees' jobs and growing the business further. We focus on a single company and take long-term responsibility for its management.<br>I intend to carefully carry forward the business and the vision that has been built, passing it on to the next generation.</p>
 							<p style="color: #333f4d; line-height: 2; margin: 0 0 1.2em 0; font-size: 0.95em;">A search fund is a mechanism that makes this possible.<br>I will personally carry the company I take on forward into the future in even better shape.<br>Furthermore, by building a successful example of a search fund, I hope to help expand the industry and make a meaningful contribution to solving the successor-shortage problem going forward.</p>
 
-							<div style="background: #e3eefb; padding: 1.5em 2em; margin: 0 0 1.5em 0;">
-								<p style="margin: 0 0 0.8em 0; font-weight: 700; color: #0B2F6B;">Career History</p>
-								<ul style="list-style: none; margin: 0; padding: 0; color: #333f4d; font-size: 0.9em; line-height: 1.9;">
-									<li style="display: flex; margin-bottom: 0.4em;"><span style="width: 105px; flex-shrink: 0;">2016-2024</span><span>Worked at a management consulting firm (strategy design, M&amp;A, new product/service development, sales &amp; new customer acquisition, overseas expansion, sales process improvement and digitalization, etc.)</span></li>
-									<li style="display: flex; margin-bottom: 0.4em;"><span style="width: 105px; flex-shrink: 0;"></span><span>Concurrently worked with local Chambers of Commerce and Industry to support SME management (including junior employee development)</span></li>
-									<li style="display: flex; margin-bottom: 0.4em;"><span style="width: 105px; flex-shrink: 0;">2024-2026</span><span>Earned an MBA from IESE Business School, Spain<br>(While enrolled, completed internships at the following)
-									<ul style="margin: 0.4em 0 0 0; padding-left: 1.2em; list-style: disc;">
-										<li style="margin-bottom: 0.2em;">Search fund: sourcing through investment thesis development</li>
-										<li style="margin-bottom: 0.2em;">Strategy consulting firm: launch of a new service and related M&amp;A evaluation</li>
-										<li style="margin-bottom: 0.2em;">Business succession investment firm: sourcing through investment thesis development at a permanent-capital investment firm</li>
-										<li>United Nations new service program: developed a new tourism service concept, awarded 2nd place worldwide</li>
-									</ul>
-								</span></li>
-									<li style="display: flex;"><span style="width: 105px; flex-shrink: 0;">2026-</span><span>Founded Wakon Kakehashi Partners</span></li>
+							<p style="color: #333f4d; margin: 0; font-size: 0.95em; line-height: 1.8;">
+								Wakon Kakehashi Partners, LLC<br>
+								Representative Partner, <br>
+								Kazuaki Yoshikawa<a href="https://www.linkedin.com/in/kyoshikawa" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-left: 0.4em; vertical-align: middle; border-bottom: none; position: relative; top: -0.15em;"><img src="images/linkedin.png" alt="LinkedIn" style="width: 100%; height: 100%; object-fit: contain; display: block;"></a>
+							</p>
+						</div>
+
+						<div style="position: relative; z-index: 1; background: rgba(227,238,251,0.7); padding: 1.5em 2em; margin-top: 1.2em;">
+							<p style="margin: 0 0 0.8em 0; font-weight: 700; color: #0B2F6B;">Career History</p>
+							<ul style="list-style: none; margin: 0; padding: 0; color: #333f4d; font-size: 0.9em; line-height: 1.9;">
+								<li style="display: flex; margin-bottom: 0.4em;"><span style="width: 105px; flex-shrink: 0;">2016-2024</span><span>Worked at a management consulting firm (strategy design, M&amp;A, new product/service development, sales &amp; new customer acquisition, overseas expansion, sales process improvement and digitalization, etc.)</span></li>
+								<li style="display: flex; margin-bottom: 0.4em;"><span style="width: 105px; flex-shrink: 0;"></span><span>Concurrently worked with local Chambers of Commerce and Industry to support SME management (including junior employee development)</span></li>
+								<li style="display: flex; margin-bottom: 0.4em;"><span style="width: 105px; flex-shrink: 0;">2024-2026</span><span>Earned an MBA from IESE Business School, Spain<br>(While enrolled, completed internships at the following)
+								<ul style="margin: 0.4em 0 0 0; padding-left: 1.2em; list-style: disc;">
+									<li style="margin-bottom: 0.2em;">Search fund: sourcing through investment thesis development</li>
+									<li style="margin-bottom: 0.2em;">Strategy consulting firm: launch of a new service and related M&amp;A evaluation</li>
+									<li style="margin-bottom: 0.2em;">Business succession investment firm: sourcing through investment thesis development at a permanent-capital investment firm</li>
+									<li>United Nations new service program: developed a new tourism service concept, awarded 2nd place worldwide</li>
 								</ul>
-							</div>
+							</span></li>
+								<li style="display: flex;"><span style="width: 105px; flex-shrink: 0;">2026-</span><span>Founded Wakon Kakehashi Partners</span></li>
+							</ul>
 						</div>
 					</div>
 				</section>
 
 			<!-- Company Overview Table -->
-				<section id="overview" class="container reveal-on-scroll" style="padding: 3em 0 4em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none;">Company Overview</h2>
+				<section id="overview" class="container reveal-on-scroll" style="padding: 1em 0 4em 0;">
+					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">Company Overview</h2>
 					<div style="max-width: 800px;">
 						<div style="display: flex; flex-wrap: wrap; padding: 1em 0; border-bottom: solid 1px #8FB8E0;">
 							<div style="width: 180px; font-weight: 700; color: #0B2F6B;">Company Name</div>
@@ -284,7 +300,7 @@
 
 			<!-- Search Fund -->
 				<section id="searchfund" class="container reveal-on-scroll" style="padding: 3em 0 1em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none;">What Is a Search Fund?</h2>
+					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">What Is a Search Fund?</h2>
 					<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2.5em;">
 						<img src="images/Scheme Diagram.png" alt="How a search fund works" style="flex: 1 1 380px; display: block; width: 100%; max-width: 460px; height: auto;">
 						<div style="flex: 1 1 380px;">
@@ -298,7 +314,7 @@
 
 			<!-- Our Value -->
 				<section id="value" class="container reveal-on-scroll" style="padding: 1em 0 3em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 3em 0; text-transform: none;">Our Value</h2>
+					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 3em 0; text-transform: none; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">Our Value</h2>
 
 					<!-- Value 01 -->
 					<div class="value-card" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: 'title img' 'desc img'; align-items: center; gap: 1em 3em; margin-bottom: 4em;">
@@ -367,7 +383,7 @@
 
 			<!-- Team -->
 				<section id="team" class="container reveal-on-scroll" style="padding: 3em 0 4em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none;">Team (Investors)</h2>
+					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 2em 0; text-transform: none; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">Team (Investors)</h2>
 					<p style="color: #333f4d; line-height: 2; margin: 0; font-size: 0.95em;">To be updated separately.</p>
 				</section>
 
@@ -376,7 +392,7 @@
 					<img src="images/corp logo.png" alt="Wakon Kakehashi Partners" style="max-height: 90px; margin: 0 auto 1em auto; display: block;">
 					<p style="margin: 0 0 1em 0; font-size: 0.85em; opacity: 0.9;">Wakon Kakehashi Partners, LLC<br>3-14-34 Kamiosaki, Shinagawa-ku, Tokyo 141-0021, Japan</p>
 					<p style="margin: 0 0 1.5em 0; font-size: 0.85em; opacity: 0.8;">Copyright &copy; Wakon Kakehashi Partners All Rights Reserved.</p>
-					<a href="contact-en.html" style="display: inline-block; background: #fff; color: #0B2F6B; padding: 0.8em 2.5em; border-radius: 999px; text-decoration: none; font-weight: 700;">Contact / Careers</a>
+					<a href="contact-en.html" style="display: inline-block; background: #fff; color: #0B2F6B; padding: 0.8em 2.5em; border-radius: 999px; text-decoration: none; font-weight: 700; border-bottom: none;">Contact / Careers</a>
 				</footer>
 
 		</div>
@@ -411,6 +427,18 @@
 					setTimeout(function () {
 						revealEls.forEach(function (el) { observer.observe(el); });
 					}, 1400);
+
+					var greetHeading = document.querySelector('#greeting h2');
+					var greetPhoto = document.querySelector('.greet-sticky-photo');
+					if (greetHeading && greetPhoto) {
+						var syncGreetPhotoTop = function () {
+							var headingTop = parseFloat(getComputedStyle(greetHeading).top) || 0;
+							var headingBottomMargin = parseFloat(getComputedStyle(greetHeading).marginBottom) || 0;
+							greetPhoto.style.top = (headingTop + greetHeading.offsetHeight + headingBottomMargin) + 'px';
+						};
+						syncGreetPhotoTop();
+						window.addEventListener('resize', syncGreetPhotoTop);
+					}
 				});
 			</script>
 
