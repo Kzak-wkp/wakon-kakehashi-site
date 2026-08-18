@@ -25,6 +25,9 @@
 		<link rel="icon" type="image/png" href="images/favicon.png" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			html {
+				scroll-behavior: smooth;
+			}
 			* {
 				font-family: 'Meiryo UI', 'Meiryo', sans-serif !important;
 			}
@@ -93,8 +96,15 @@
 				.career-history-box {
 					margin-left: -0.5cm !important;
 					margin-right: -0.5cm !important;
-					padding-left: calc(0.5cm + 2em) !important;
-					padding-right: calc(0.5cm + 2em) !important;
+					padding-left: 0.5cm !important;
+					padding-right: 0.5cm !important;
+				}
+				.en-msg-card {
+					margin-left: -0.5cm !important;
+					margin-right: -0.5cm !important;
+				}
+				.en-msg-textcol {
+					padding: 2em 0.5cm !important;
 				}
 				.career-history-box li {
 					flex-direction: column !important;
@@ -151,9 +161,11 @@
 					<img src="images/corp logo 2.png" alt="Wakon Kakehashi Partners" style="max-height: 45px; display: block;">
 					<nav id="nav" style="position: static; top: auto; right: auto;">
 						<ul style="margin: 0;">
-							<li class="current"><a href="english.html">English</a></li>
+							<li><a href="#" id="topLink">TOP</a></li>
+							<li><a href="#company-hero">Company</a></li>
+							<li><a href="#business-hero">Business</a></li>
 							<li><a href="contact-en.html" style="display: inline-flex; align-items: center; gap: 0.5em; background: #005BAA; color: #fff; padding: 0.6em 1.4em; border-radius: 999px; border-bottom: none;"><span class="icon solid fa-envelope" style="color: #fff;"></span>Contact / Careers</a></li>
-							<li><a href="index.html">日本語</a></li>
+							<li><a href="index.html" style="color: #0B2F6B; font-weight: 700;">JP</a><span style="color: #ccc; margin: 0 0.3em;">/</span><span style="color: #999; font-weight: 700;">EN</span></li>
 						</ul>
 					</nav>
 				</header>
@@ -185,9 +197,9 @@
 
 			<!-- Message -->
 				<section id="message-section" class="container reveal-on-scroll" style="padding: 3em 0;">
-					<div style="display: flex; flex-wrap: wrap; align-items: center; background: #e3eefb;">
+					<div class="en-msg-card" style="display: flex; flex-wrap: wrap; align-items: center; background: #e3eefb;">
 
-						<div style="flex: 1 1 500px; padding: 3em; align-self: center;">
+						<div class="en-msg-textcol" style="flex: 1 1 500px; padding: 3em; align-self: center;">
 							<h2 style="font-size: 1.3em; font-weight: 900; color: #0B2F6B; border-bottom: solid 2px #0B2F6B; padding-bottom: 0.6em; margin: 0 0 1em 0; letter-spacing: 0.02em; text-transform: none;">We commit fully and responsibly to just one company.</h2>
 							<p style="font-size: 0.9em; color: #0B2F6B; font-weight: 700; line-height: 1.8; margin: 0 0 1.2em 0; letter-spacing: normal; text-transform: none;">"Wakon" means the spirit of Japan, and "Kakehashi" means a bridge that connects.<br>We are the bridge — between a company and its future, between employees and their happiness, and between Japan and the world.</p>
 							<p style="font-size: 0.85em; color: #333f4d; line-height: 1.9; margin: 0 0 1.2em 0; letter-spacing: normal; text-transform: none;">Wakon Kakehashi Partners is a "traditional-model" search fund formed by a team of management professionals. We take over just one promising small or medium-sized enterprise and manage it ourselves.<br>Unlike investment funds that handle multiple companies at once, a search fund focuses entirely on the future of a single company.</p>
@@ -212,7 +224,7 @@
 				</section>
 
 			<!-- Company Page Hero -->
-				<section style="padding: 3.5em 1.5em; background: linear-gradient(rgba(0, 91, 170, 0.6), rgba(0, 91, 170, 0.6)), url('images/ヘッダー１.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+				<section id="company-hero" style="scroll-margin-top: 73px; padding: 3.5em 1.5em; background: linear-gradient(rgba(0, 91, 170, 0.6), rgba(0, 91, 170, 0.6)), url('images/ヘッダー１.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
 					<h1 style="margin: 0; font-size: 2em; font-weight: 900; letter-spacing: 0.05em; text-transform: none;">Company Profile</h1>
 				</section>
 
@@ -284,10 +296,6 @@
 							<div style="flex: 1; min-width: 240px; color: #333f4d;">3-14-34 Kamiosaki, Shinagawa-ku, Tokyo 141-0021, Japan</div>
 						</div>
 						<div style="display: flex; flex-wrap: wrap; padding: 1em 0; border-bottom: solid 1px #8FB8E0;">
-							<div style="width: 180px; font-weight: 700; color: #0B2F6B;">Phone</div>
-							<div style="flex: 1; min-width: 240px; color: #333f4d;">+81 90-9341-6785</div>
-						</div>
-						<div style="display: flex; flex-wrap: wrap; padding: 1em 0; border-bottom: solid 1px #8FB8E0;">
 							<div style="width: 180px; font-weight: 700; color: #0B2F6B;">Business</div>
 							<div style="flex: 1; min-width: 240px; color: #333f4d;">
 								<ul style="margin: 0; padding-left: 1.2em;">
@@ -301,7 +309,7 @@
 				</section>
 
 			<!-- Business Page Hero -->
-				<section style="padding: 3.5em 1.5em; background: linear-gradient(rgba(0, 91, 170, 0.6), rgba(0, 91, 170, 0.6)), url('images/ヘッダー２.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+				<section id="business-hero" style="scroll-margin-top: 73px; padding: 3.5em 1.5em; background: linear-gradient(rgba(0, 91, 170, 0.6), rgba(0, 91, 170, 0.6)), url('images/ヘッダー２.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
 					<h1 style="margin: 0; font-size: 2em; font-weight: 900; letter-spacing: 0.05em; text-transform: none;">Our Business</h1>
 				</section>
 
@@ -405,9 +413,14 @@
 				<footer id="footer" style="background: #005BAA; color: #fff; text-align: center; padding: 3.5em 1.5em;">
 					<img src="images/corp logo.png" alt="Wakon Kakehashi Partners" style="max-height: 90px; margin: 0 auto 1em auto; display: block;">
 					<p style="margin: 0 0 1em 0; font-size: 0.85em; opacity: 0.9;">Wakon Kakehashi Partners, LLC<br>3-14-34 Kamiosaki, Shinagawa-ku, Tokyo 141-0021, Japan</p>
-					<p style="margin: 0 0 1.5em 0; font-size: 0.85em; opacity: 0.8;">Copyright &copy; Wakon Kakehashi Partners All Rights Reserved.</p>
+					<p style="margin: 0 0 1.5em 0; font-size: 0.85em; opacity: 0.8;">Copyright &copy; Wakon Kakehashi Partners LLC All Rights Reserved.</p>
 					<a href="contact-en.html" style="display: inline-block; background: #fff; color: #0B2F6B; padding: 0.8em 2.5em; border-radius: 999px; text-decoration: none; font-weight: 700; border-bottom: none;">Contact / Careers</a>
 				</footer>
+
+			<button id="backToTop" type="button" aria-label="Back to Top" style="position: fixed; right: 1.5em; bottom: 1.5em; width: auto; height: auto; background: none; color: #0B2F6B; border: none; padding: 0; min-width: 0; line-height: 1; text-transform: none; letter-spacing: normal; font-size: 16px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3em; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s; z-index: 9999;">
+					<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0B2F6B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+					<span style="display: block; border: solid 1.5px #0B2F6B; border-radius: 3px; padding: 0.2em 1.3em; font-size: 0.72em; line-height: 1.4; font-weight: 700; letter-spacing: 0.05em; color: #0B2F6B; background: #fff;">TOP</span>
+				</button>
 
 		</div>
 
@@ -452,6 +465,47 @@
 						};
 						syncGreetPhotoTop();
 						window.addEventListener('resize', syncGreetPhotoTop);
+					}
+
+					var topLink = document.getElementById('topLink');
+					if (topLink) {
+						topLink.addEventListener('click', function (e) {
+							e.preventDefault();
+							window.scrollTo({ top: 0, behavior: 'smooth' });
+						});
+					}
+
+					var backToTop = document.getElementById('backToTop');
+					var footerEl = document.getElementById('footer');
+					if (backToTop) {
+						var margin = 24;
+						var toggleBackToTop = function () {
+							var visible = window.scrollY > 400;
+							backToTop.style.opacity = visible ? '1' : '0';
+							backToTop.style.visibility = visible ? 'visible' : 'hidden';
+							backToTop.style.transform = visible ? 'translateY(0)' : 'translateY(10px)';
+
+							if (footerEl) {
+								var footerRect = footerEl.getBoundingClientRect();
+								var buttonHeight = backToTop.offsetHeight;
+								if (footerRect.top < window.innerHeight - margin) {
+									var footerTopDoc = footerRect.top + window.scrollY;
+									backToTop.style.position = 'absolute';
+									backToTop.style.top = (footerTopDoc - buttonHeight - margin) + 'px';
+									backToTop.style.bottom = 'auto';
+								} else {
+									backToTop.style.position = 'fixed';
+									backToTop.style.top = 'auto';
+									backToTop.style.bottom = '1.5em';
+								}
+							}
+						};
+						window.addEventListener('scroll', toggleBackToTop, { passive: true });
+						window.addEventListener('resize', toggleBackToTop);
+						toggleBackToTop();
+						backToTop.addEventListener('click', function () {
+							window.scrollTo({ top: 0, behavior: 'smooth' });
+						});
 					}
 				});
 			</script>
