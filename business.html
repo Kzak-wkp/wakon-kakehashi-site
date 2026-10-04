@@ -68,6 +68,278 @@
 					grid-template-columns: 1fr !important;
 					grid-template-areas: "title" "img" "desc" !important;
 				}
+				.team-grid {
+					grid-template-columns: repeat(2, 1fr) !important;
+				}
+			}
+			.team-card {
+				cursor: pointer;
+				text-align: left;
+			}
+			.team-photo-placeholder {
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0;
+				padding: 2.2em;
+				box-sizing: border-box;
+				transition: opacity 0.2s ease-out;
+			}
+			.team-photo-placeholder img {
+				object-fit: contain !important;
+			}
+			@media screen and (min-width: 841px) {
+				.team-grid-5 {
+					container-type: inline-size;
+				}
+				.team-grid-5 .team-photo-placeholder {
+					padding: 0.8em;
+					padding: calc(2.1625em - 100cqw / 40);
+					margin: calc(0.0375em + 100cqw / 40) 0;
+				}
+				.team-grid-5 .team-tags span {
+					display: inline-block;
+					white-space: normal !important;
+					word-break: keep-all;
+					overflow-wrap: anywhere;
+				}
+			}
+			.team-card:hover .team-photo-placeholder {
+				opacity: 0.8;
+			}
+			.team-name {
+				margin: 0;
+				font-weight: 700;
+				color: #333f4d;
+				font-size: 0.95em;
+			}
+			.team-title {
+				margin: 0.2em 0 0 0;
+				color: #666;
+				font-size: 0.8em;
+			}
+			.team-tags {
+				margin: 0.4em 0 0 0;
+				color: #999;
+				font-size: 0.75em;
+				line-height: 1.6;
+				word-break: keep-all;
+			}
+			.team-category {
+				margin: 0;
+				font-size: 1.1em;
+				font-weight: 700;
+				color: #0B2F6B;
+				border-left: solid 4px #0B2F6B;
+				padding-left: 0.6em;
+			}
+			.team-modal-overlay {
+				display: none;
+				position: fixed;
+				top: 73px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(10, 20, 40, 0.6);
+				z-index: 1000;
+				align-items: center;
+				justify-content: center;
+				padding: 1.5em;
+			}
+			.team-modal-overlay.is-open {
+				display: flex;
+			}
+			.team-modal-box {
+				background: #fff;
+				max-width: 640px;
+				width: 100%;
+				max-height: calc(100vh - 73px - 3em);
+				overflow-y: auto;
+				border-radius: 12px;
+				padding: 3em;
+				position: relative;
+				text-align: center;
+			}
+			.team-modal-close {
+				min-width: 0;
+				-webkit-appearance: none;
+				appearance: none;
+				position: sticky;
+				top: -1.3em;
+				letter-spacing: 0;
+				text-indent: 0;
+				z-index: 2;
+				display: block;
+				width: 1.6em;
+				height: 1.6em;
+				margin: -1.3em auto -0.3em auto;
+				padding: 0;
+				border: none;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.92);
+				box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+				font-size: 1.5em;
+				line-height: 1.6em;
+				text-align: center;
+				color: transparent;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			/* ×はフォントによって上下にずれるため、2本の線で描いて中央に置く */
+			.team-modal-close::before, .team-modal-close::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0.7em;
+				height: 2px;
+				background: #999;
+				border-radius: 1px;
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+			.team-modal-close::after {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+			.team-modal-photo {
+				width: 160px;
+				aspect-ratio: 1 / 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				box-sizing: border-box;
+			}
+			@media screen and (max-width: 840px) {
+				.team-grid {
+					grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+				}
+				.team-card {
+					min-width: 0;
+				}
+				.team-name, .team-title {
+					overflow-wrap: anywhere;
+				}
+				.team-tags span {
+					white-space: normal !important;
+					display: inline-block;
+					overflow-wrap: anywhere;
+				}
+				.team-category {
+					font-size: 1em;
+				}
+				.team-name {
+					font-size: 0.82em;
+				}
+				.team-title {
+					font-size: 0.7em;
+				}
+				.team-tags {
+					font-size: 0.66em;
+				}
+				#team-modal-name {
+					font-size: 1.05em !important;
+				}
+				#team-modal-title {
+					font-size: 0.78em !important;
+				}
+				#team-modal-tags {
+					font-size: 0.7em !important;
+				}
+				#team-modal-history, #team-modal-philosophy, #team-modal-track, #team-modal-searchfund {
+					font-size: 0.8em !important;
+				}
+			}
+			/* ロゴ枠を常に正方形に固定（iOS Safariで画像に引っぱられて縦長になるのを防ぐ） */
+			.team-photo-placeholder {
+				overflow: hidden;
+				min-height: 0;
+			}
+			/* 国旗の基準枠を、ロゴ画像と同じ正方形に固定 */
+			.team-photo-placeholder > span {
+				width: 100% !important;
+				height: auto !important;
+				aspect-ratio: 1 / 1;
+				flex: none;
+			}
+			/* iOS Safariで枠が縦長になるため、枠ではなく中の画像側を正方形にする（枠は余白を付けるだけ） */
+			.team-photo-placeholder {
+				aspect-ratio: auto !important;
+				height: auto !important;
+			}
+			.team-photo-placeholder > img {
+				width: 100% !important;
+				height: auto !important;
+				aspect-ratio: 1 / 1;
+				flex: none;
+			}
+			.team-photo-placeholder > span > img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100% !important;
+				height: 100% !important;
+			}
+			/* スマホ：1列・ロゴ左／文字右の横並び */
+			@media screen and (max-width: 840px) {
+				.team-grid, .team-grid-5 {
+					grid-template-columns: minmax(0, 1fr) !important;
+					gap: 1.8em !important;
+				}
+				.team-card {
+					display: grid;
+					grid-template-columns: 40% minmax(0, 1fr);
+					column-gap: 1em;
+					align-items: start;
+					align-content: start;
+				}
+				.team-card > .team-photo-placeholder {
+					grid-column: 1;
+					grid-row: 1 / span 4;
+					align-self: start;
+					height: auto;
+					padding: 0.7em !important;
+					margin: 0 !important;
+				}
+				.team-card > p {
+					grid-column: 2;
+				}
+				.team-photo-placeholder svg {
+					width: 24px;
+					height: 16px;
+					top: 4px !important;
+					left: 4px !important;
+				}
+				.team-category {
+					font-size: 1.1em;
+					margin-bottom: 0.8em !important;
+				}
+				.team-name {
+					font-size: 1em;
+				}
+				.team-title {
+					font-size: 0.85em;
+				}
+				.team-tags {
+					font-size: 0.78em;
+					word-break: keep-all;
+				}
+				.team-tags span {
+					word-break: keep-all;
+					overflow-wrap: anywhere;
+				}
+				.team-tags .tag-chunk, #team-modal-tags .tag-chunk {
+					display: inline-block;
+					max-width: 100%;
+					word-break: keep-all;
+					overflow-wrap: anywhere;
+				}
+				#team-modal-tags > span {
+					white-space: normal !important;
+					display: inline-block;
+					max-width: 100%;
+				}
 			}
 		</style>
 	</head>
@@ -178,17 +450,118 @@
 							<h3 style="margin: 0.35em 0 0 0; font-size: 1.3em; font-weight: 900; color: #222;">多様な経験を持つチームによるバックアップ</h3>
 						</div>
 						<div style="grid-area: desc;">
-							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">弊社は、4か国18法人（人）による支援で設立された法人です。代表一人の力だけでなく、チームとして経営に向き合います。</p>
+							<p style="margin: 0 0 1em 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">弊社は、6か国20法人（人）による支援で設立された法人です。代表一人の力だけでなく、チームとして経営に向き合います。</p>
 							<p style="margin: 0; color: #333f4d; line-height: 1.9; font-size: 0.9em;">事業会社、投資会社、経営者など多様なバックグラウンドを持ち、業界や各種専門に精通するプロフェッショナル達と共に、チームとしてオーナー様が育ててこられた会社と向き合います。</p>
 						</div>
 					</div>
 				</section>
 
 			<!-- Team -->
-				<section id="team" class="container reveal-on-scroll" style="padding: 1em 0 4em 0;">
-					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 2em 0; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">チーム（投資家）</h2>
-					<p style="color: #333f4d; line-height: 2; margin: 0; font-size: 0.95em;">※別途、更新予定です</p>
+				<section id="team" class="container" style="padding: 1em 0 4em 0;">
+					<h2 style="font-size: 1.6em; font-weight: 900; color: #0B2F6B; border-bottom: solid 3px #0B2F6B; padding-top: 0.6em; padding-bottom: 0.5em; margin: 0 0 1em 0; position: sticky; top: 73px; background: #f3f6fa; z-index: 5;">チーム（投資家）</h2>
+					<p style="color: #333f4d; line-height: 2; margin: 0 0 0.4em 0; font-size: 0.95em;">当社は、経営・事業、金融、サーチファンド等の複数のプロフェッショナルにチームとして参画頂いています。チームとして一丸となって、事業に向き合います。</p>
+					<p style="color: #999; line-height: 1.8; margin: 0 0 2em 0; font-size: 0.75em;">*一部抜粋。別途、更新予定</p>
+
+					<h3 class="team-category reveal-on-scroll">サーチファンド投資家</h3>
+					<div class="team-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5em 1.5em; margin-bottom: 3em;">
+						<div class="team-card reveal-on-scroll" data-name="NYC株式会社" data-url="https://nycinc.jp/" data-title="代表：中塚 庸仁 氏" data-tags="#事業承継投資 #Not a Fund(自己資金) #つなぐ投資 #その仕事を、未来へつなぐ。" data-img="images/投資家/A-1.NYC.jpeg" data-img2="images/投資家/A-2中塚氏.png" data-history="2022年設立。中小企業の事業承継・成長支援に特化した投資会社。" data-philosophy="スローガンは「その仕事を、未来へつなぐ。」。投資後も会社の独立性・社風を維持しながら経営を次の世代へ引き継ぐ「つなぐ投資」を実践。外部出資者を入れない自己資金のみでの投資（Not a Fund）のため、事業承継の進め方や経営支援の内容に制約がなく、承継企業に向き合った改革に強みがある。" data-track="後継社長の招聘・育成をはじめ、採用・マーケティング・システム導入など、投資後の経営支援を多面的に手がける。金属加工、学習塾、冷凍冷蔵設備など幅広い業種で投資実績を積み上げ、2027年までに投資実績100件を目標に掲げる。" data-searchfund="代表の中塚庸仁氏は、広島県福山市出身。ソフトバンク株式会社にて経理・経営企画・国内外ベンチャー投資業務に従事した後、デロイトトーマツファイナンシャルアドバイザリー合同会社にてM&amp;A戦略、ビジネスデューデリジェンス、PMI等のアドバイザリー業務を担当。ACA株式会社にて中小企業向け独立系バイアウトファンドの立ち上げに参画し、投資実行後のハンズオン支援に従事した後、2022年にNYC株式会社を設立。" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><img src="images/投資家/A-1.NYC.jpeg" alt="NYC株式会社" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+							<p class="team-name">NYC株式会社 <a href="https://nycinc.jp/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-title">代表：中塚 庸仁 氏</p>
+							<p class="team-tags"><span style="white-space: nowrap;">#事業承継投資</span> <span style="white-space: nowrap;">#Not a Fund(自己資金)</span> <span style="white-space: nowrap;">#つなぐ投資</span> <span style="white-space: nowrap;">#その仕事を、未来へつなぐ。</span></p>
+						</div>
+						<div class="team-card reveal-on-scroll" data-name="Hakuba Capital Management" data-url="https://hakuba.cc/" data-title="代表：Moto Dohi 氏" data-tags="#日本初のFund of Search Funds #越境投資家 #次世代リーダー育成" data-img="images/投資家/C-1.Hakuba.png" data-img2="images/投資家/C-2.Dohi氏.png" data-history="日本初、トラディショナル型サーチファンドに特化したFund of Search Funds。才能あるサーチャーへの投資を通じて次世代リーダーを育成する。" data-philosophy="戦略的なインサイトと実践的な伴走支援を組み合わせ、サーチファンドという手法を通じて次世代リーダーの輩出を後押し。MBA修了者をはじめとする起業家予備軍が中小企業を取得・経営する挑戦を、資金と知見の両面から支える。" data-track="日本人6名・海外3名のサーチャーに投資。国内では発泡スチロール加工会社やパズル製造会社など、ニッチながら安定した収益基盤を持つ中小企業の承継を支援し、海外ではブラジルやイベリア地域のサーチャーにも投資対象を広げている。" data-searchfund="代表のMoto Dohi氏は、バイオ医薬品業界で15年以上のターンアラウンド・DX経験を持つIMD MBA卒。金融・投資領域で幅広い国際経験を持つアドバイザー陣とともに、サーチャーの事業分析やM&A実務を中心とした実践的なハンズオン支援を行う。" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><img src="images/投資家/C-1.Hakuba.png" alt="Hakuba Capital Management" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+							<p class="team-name">Hakuba Capital Management <a href="https://hakuba.cc/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-title">代表：Moto Dohi 氏</p>
+							<p class="team-tags"><span style="white-space: nowrap;">#日本初のFund of Search Funds</span> <span style="white-space: nowrap;">#越境投資家</span> <span style="white-space: nowrap;">#次世代リーダー育成</span></p>
+						</div>
+						<div class="team-card reveal-on-scroll" data-name="RAUL株式会社" data-url="https://www.ra-ul.com/" data-title="代表：江田 健二 氏" data-tags="#脱炭素×デジタル #環境エネルギーコンサルティング #SDGs / CSR" data-img="images/投資家/D-1.RAUL.png" data-img2="images/投資家/D-2.江田氏.jpg" data-history="2005年設立。アクセンチュアでエネルギー・化学業界のITコンサルティングに従事した江田健二氏が、環境・エネルギー領域の変化を見据えて創業。以来20年にわたり、デジタル技術を活用した企業の脱炭素化・環境経営支援に取り組む。" data-philosophy="特定の技術や解決策を一方的に勧めるのではなく、市場・制度・技術が複雑に絡み合う中で企業が自ら判断できるよう、前提や選択肢を整理し、意思決定の土台を整えることを役割とする。短期的な流行にとどまらず、中長期的に説明可能な判断を支えることを重視している。" data-track="エネルギー事業者・一般企業向けに、脱炭素化・カーボンニュートラル支援やエネルギー効率化支援、SDGs/CSRサステナビリティ経営コンサルティングを提供。系統用蓄電池用地のポテンシャル診断サービスなど、新領域のサービス開発も行う。金融機関・機関投資家との非公開ブリーフィングにも継続的に関与している。サーチファンドにも継続的に出資しており、これまでに4件以上の出資実績がある。" data-searchfund="代表の江田健二氏は、富山県出身。慶應義塾大学経済学部卒業、東京大学エグゼクティブ・マネジメント・プログラム（EMP）修了。アクセンチュア株式会社でエネルギー・化学業界を担当し、電力会社や大手化学メーカーの業務改善・IT導入プロジェクトに参画した後、2005年にRAUL株式会社を設立。一般社団法人エネルギー情報センター理事などを務め、脱炭素・エネルギー分野の書籍執筆や講演も多数手がける。" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><img src="images/投資家/D-1.RAUL.png" alt="RAUL株式会社" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #fff;"></div>
+							<p class="team-name">RAUL株式会社 <a href="https://www.ra-ul.com/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-title">代表：江田 健二 氏</p>
+							<p class="team-tags"><span style="white-space: nowrap;">#脱炭素×デジタル</span> <span style="white-space: nowrap;">#環境エネルギーコンサルティング</span> <span style="white-space: nowrap;">#SDGs / CSR</span></p>
+						</div>
+					</div>
+
+					<h3 class="team-category reveal-on-scroll">事業会社・プロフェッショナル会社</h3>
+					<div class="team-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5em 1.5em; margin-bottom: 3em;">
+						<div class="team-card reveal-on-scroll" data-name="フェアバリューアドバイザリー株式会社" data-url="https://www.fv-advisory.com/" data-title="代表取締役：齊藤 和彦 氏" data-tags="#公認会計士・税理士 #財務診断のプロフェッショナル #事業承継の実務支援" data-img="images/投資家/F-1.フェアバリューアドバイザリー.png" data-img2="images/投資家/F-2.齊藤氏.jpg" data-history="2022年5月設立。公認会計士・税理士の齊藤和彦が、監査法人トーマツおよびPwCアドバイザリー株式会社での実務経験を基盤に、財務の専門家集団として設立。" data-philosophy="資金繰り、組織再編、事業承継など、経営判断の根幹に関わる場面において、財務の専門家としての知見を提供。弁護士・司法書士・不動産鑑定士等の専門家ネットワークと連携し、会社の実情に即した支援を行う。" data-track="株式価値・事業価値の算定や無形資産評価、資金調達支援など、製造業・IT・サービス業・金融業をはじめ幅広い業種で財務面の支援実績を持つ。事業承継分野では、弁護士会主催の事業承継ゼミや研究会における株価算定講師も歴任。" data-searchfund="代表の齊藤和彦は、公認会計士・税理士。監査法人トーマツにて財務諸表監査に従事した後、PwCアドバイザリー株式会社にて企業価値評価業務を担当。三井物産株式会社への出向、株式会社CLUEにおける管理部門責任者を経て、2022年5月にフェアバリューアドバイザリー株式会社を設立。日本公認会計士協会東京会業務委員会副委員長を務める。" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><img src="images/投資家/F-1.フェアバリューアドバイザリー.png" alt="フェアバリューアドバイザリー株式会社" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #fff;"></div>
+							<p class="team-name">フェアバリューアドバイザリー株式会社 <a href="https://www.fv-advisory.com/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-title">代表取締役：齊藤 和彦 氏</p>
+							<p class="team-tags"><span style="white-space: nowrap;">#公認会計士・税理士</span> <span style="white-space: nowrap;">#財務診断のプロフェッショナル</span> <span style="white-space: nowrap;">#事業承継の実務支援</span></p>
+						</div>
+						<div class="team-card reveal-on-scroll" data-name="Link-D Partners株式会社" data-url="https://link-d.jp/" data-title="代表取締役CEO：松村 英寿 氏" data-tags="#弁護士×元スタートアップCOO #経営と法務の参謀 #スタートアップ投資" data-img="images/投資家/G-1.Link-D.jpeg" data-img2="images/投資家/G-2.松村氏.png" data-history="2025年12月設立。Link-D法律事務所の代表弁護士である松村英寿氏が、スタートアップ経営の実務経験と企業法務の専門性を融合させた経営支援会社として設立。" data-philosophy="社名は「Link to Dream（夢につながる応援をしたい）」に由来。法務だけ、経営支援だけではなく、現場と制度の両方を理解したうえで、起業家・経営者に当事者目線で伴走する参謀役を掲げる。" data-track="経営・財務・法務・契約を横断した、スタートアップの成長支援を提供。Link-D法律事務所と連携し、資金調達や組織基盤の整備を後押しする。あわせて、プレシード〜アーリーステージのスタートアップへの資金支援（スタートアップ投資）も手がける。" data-searchfund="代表の松村英寿氏は、弁護士（第二東京弁護士会所属）。大手法律事務所にて、エクイティファイナンスやM&amp;Aをはじめとする企業法務に従事した後、米国留学を経て、スタートアップ支援やAI・データ利活用領域に携わる。2022年にLink-D法律事務所を設立。スタートアップの代表取締役COOとして経営に参画した後、2025年12月にLink-D Partners株式会社を設立。" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><img src="images/投資家/G-1.Link-D.jpeg" alt="Link-D Partners株式会社" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #fff;"></div>
+							<p class="team-name">Link-D Partners株式会社 <a href="https://link-d.jp/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-title">代表取締役CEO：松村 英寿 氏</p>
+							<p class="team-tags"><span style="white-space: nowrap;">#弁護士×元スタートアップCOO</span> <span style="white-space: nowrap;">#経営と法務の参謀</span> <span style="white-space: nowrap;">#スタートアップ投資</span></p>
+						</div>
+					</div>
+
+					<h3 class="team-category reveal-on-scroll">経営エキスパート</h3>
+					<div class="team-grid team-grid-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5em 1.5em; margin-bottom: 3em;">
+						<div class="team-card reveal-on-scroll" data-name="佐川 悠 氏" data-url="https://www.from-donzoko.com/" data-title="株式会社どんぞこ 代表取締役社長" data-tags="#出張整備Seibii創業者 #挑戦する人を応援 #事業承継の経験者" data-img2="images/投資家/Q.佐川氏.png" data-history="慶應義塾大学経済学部卒業。2009年に三井物産株式会社へ入社し、約10年にわたり金属資源本部で、レアメタルの取引・投資事業やリサイクル事業の開発などに従事。南アフリカ駐在ではアフリカでの事業開発を担当した。2019年1月、出張整備サービスの株式会社Seibii（セイビー）を創業。全国47都道府県で整備士約900名がサービスを提供し、累計20万台、年商16億円規模、累計10億円の資金調達へと成長させた。2023年3月には、1957年創業の整備工場の事業承継も実施。2025年3月にSeibiiの経営から退き、株式会社どんぞこを設立した。" data-philosophy="株式会社どんぞこは、2025年2月設立。何度でも挑戦を続ける人や企業が輝ける社会づくりに取り組むことを掲げる。事業は、事業開発・営業・組織や文化づくりの支援、プロダクトづくりの支援、スタートアップやサーチファンドへのエンジェル投資（起業家への個人としての出資）、自社サービス・製品の開発。佐川氏自身も、これまでに3社へ出資している。" data-track="" data-searchfund="" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><img src="images/投資家/Q.佐川氏.png" alt="佐川 悠 氏" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+							<p class="team-name">佐川 悠 氏 <a href="https://www.from-donzoko.com/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="どんぞこのページを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-title">株式会社どんぞこ<br>代表取締役社長</p>
+							<p class="team-tags"><span style="white-space: nowrap;">#&#8288;出張整備Seibii創業者</span> <span style="white-space: nowrap;">#&#8288;挑戦する人を応援</span> <span style="white-space: nowrap;">#&#8288;事業承継の経験者</span></p>
+						</div>
+					</div>
+
+					<h3 class="team-category reveal-on-scroll">海外投資家</h3>
+					<div class="team-grid team-grid-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.5em 1.5em;">
+						<div class="team-card reveal-on-scroll" data-name="Ambit Partners" data-url="https://www.ambit.partners/" data-title="共同創業者：Rob LeBlanc 氏 / Andrew Locke 氏 / Niel Wyma 氏" data-tags="#多国籍サーチファンド投資家 #35か国145以上のサーチファンド支援実績 #承継企業25社超" data-img="images/投資家/I-1.ambit.jpg" data-img2="images/投資家/I-2.Rob.jpg" data-history="Ambit Partnersは、Rob LeBlanc 氏、Andrew Locke 氏、Niel Wyma 氏の3名によって2020年に設立された、サーチファンドと起業家による企業買収に特化した専門の投資家。3名が個人で出資していたサーチファンドへの投資資産と、友人・家族からの200万米ドルを合わせ、16か国・24人のサーチャーによる試験的な投資を始めたことが出発点。拠点はカナダ、南アフリカ、フランスにまたがる。「野心的な買収起業家が、優れた企業を買収し、成長させることを支援する」ことをミッションに掲げる。" data-philosophy="支援先のサーチファンドは140件以上、所在国は35か国以上の実績を有する。承継した企業は25社を超える。運用資産は、2025年4月時点で1億米ドル（1号ファンド、共同投資の枠組み、2号ファンドの合計）。2号ファンドは、2025年4月に上限の6,000万米ドルで募集を終了。" data-track="Rob LeBlanc 氏は、マギル大学卒業、ハーバード・ビジネス・スクールMBA修了。サーチファンド、起業家による企業買収、中堅企業の成長支援に携わってきた投資家・取締役で、創業前は北米、アフリカ、中東、アジア、欧州で投資、助言、起業家としての役割を経験した。現在は、アメリカ大陸とアジア太平洋地域の業務を中心に、サーチャーやCEOを、買収から長期的な価値づくりまで支援している。バンクーバー在住。Andrew Locke 氏は、ミドルベリー大学卒業、INSEAD MBA修了。ハーバード大学の研究者として行動経済学の現地調査を主導し、経営コンサルティングや太陽光発電企業へのCEO出向を経て、創業前は4つの投資ポートフォリオの投資後管理を主導した。現在は欧州を中心に、投資先10社を担当している。Niel Wyma 氏は、南アフリカ出身で、INSEAD MBA修了。Bain &amp; Coのスピンアウト企業のコンサルタント、ファミリーオフィスを経て2015年にRob LeBlanc 氏のもとに参画し、3年間で約30件の起業家による企業買収を成約させた。現在は、アフリカ、欧州、北米でサーチャーとCEOを支援している。" data-searchfund="当社では、Rob LeBlanc 氏がメンターとして就任。" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><span style="position: relative; display: block; width: 100%; height: 100%;"><img src="images/投資家/I-1.ambit.jpg" alt="Ambit Partners" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #fff;"><svg role="img" aria-label="フランス国旗" viewBox="0 0 3 2" width="33" height="22" style="position: absolute; top: 6px; left: 6px; outline: 1px solid rgba(0, 0, 0, 0.18);"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg></span></div>
+							<p class="team-name">Ambit Partners <a href="https://www.ambit.partners/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-tags"><span style="white-space: nowrap;">#&#8288;多国籍サーチファンド投資家</span> <span style="white-space: nowrap;">#&#8288;35か国145以上のサーチファンド支援実績</span> <span style="white-space: nowrap;">#&#8288;承継企業25社超</span></p>
+						</div>
+						<div class="team-card reveal-on-scroll" data-name="AIJ Global" data-url="https://www.aij.global/" data-title="" data-tags="#ファミリー出資の独立系投資グループ #サーチファンド120件超に投資 #14か国25社超が投資先" data-img="images/投資家/J.AIJ.png" data-history="AIJ Globalは、ファミリー・オーナー型の独立系ホールディング・グループ。外部の出資者（LP）を入れず、自己資金で投資することで、運営の自由度を確保している。サーチファンド、企業への成長資金・株式投資、厳選した商業不動産、後期段階のベンチャーに、世界規模で投資する。「Empowering Entrepreneurs Globally（世界の起業家を支援する）」を掲げ、米国外では世界有数の、継続的なサーチファンド投資家の一つ。" data-philosophy="2017年初頭以来、アメリカ大陸、欧州、アフリカ、アジア太平洋の各地域で、120件以上のサーチファンドに投資してきた。現在の投資先は、14か国にわたる25社以上（2026年10月時点）。" data-track="" data-searchfund="" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><span style="position: relative; display: block; width: 100%; height: 100%;"><img src="images/投資家/J.AIJ.png" alt="AIJ Global" style="width: 100%; height: 100%; object-fit: cover; display: block;"><svg role="img" aria-label="ベトナム国旗" viewBox="0 0 3 2" width="33" height="22" style="position: absolute; top: 6px; left: 6px; outline: 1px solid rgba(0, 0, 0, 0.18);"><rect width="3" height="2" fill="#DA251D"/><polygon points="1.500,0.420 1.639,0.848 2.090,0.848 1.725,1.113 1.864,1.542 1.500,1.277 1.136,1.542 1.275,1.113 0.910,0.848 1.361,0.848" fill="#FFFF00"/></svg></span></div>
+							<p class="team-name">AIJ Global <a href="https://www.aij.global/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-tags"><span style="white-space: nowrap;">#&#8288;ファミリー出資の独立系投資グループ</span> <span style="white-space: nowrap;">#&#8288;サーチファンド120件超に投資</span> <span style="white-space: nowrap;">#&#8288;14か国25社超が投資先</span></p>
+						</div>
+						<div class="team-card reveal-on-scroll" data-name="Cabiedes &amp; Partners" data-url="http://www.cabiedesandpartners.com/" data-title="" data-tags="#ベンチャー投資×サーチファンド投資 #80件超のサーチファンドに出資 #サーチファンドの世界的権威" data-img="images/投資家/K.Cabiedes.png" data-img-width="440" data-img-ratio="6 / 5" data-history="Cabiedes &amp; Partnersは、スペインのマドリードに拠点を置く投資会社。José Martín Cabiedes 氏とLuis Martín Cabiedes 氏により共同創業。ベンチャーキャピタルの運営と、サーチファンドへの投資を手がけている。ベンチャー投資では特に、シード期で創業初期の企業への投資に焦点を当てたファンドを運営する。" data-philosophy="サーチファンドへの投資は2014年に始まり、これまでに80件以上の出資実績あり。現在の投資先は20社を超え、主にヨーロッパとラテンアメリカで活動する40人以上のサーチャーに関わっている。ベンチャーキャピタルでは、10件以上のEXIT実績を有する。" data-track="当社においては、José Martín Cabiedes 氏とIñigo Barbed 氏が参画。&lt;br&gt;José 氏は、IESE Business SchoolでMBAを取得。Cabiedes &amp; Partnersの投資マネージャーを務め、IESEでは起業家学部のSenior Lecturerとして教壇に立ち、サーチファンドに関する講義を担当。世界的なサーチファンド業界の権威。Iñigo Barbed 氏は、サーチファンドと、買収による起業（ETA）への投資を担うジェネラルパートナー。" data-searchfund="" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><span style="position: relative; display: block; width: 100%; height: 100%;"><img src="images/投資家/J.Cabiedes.jpeg" alt="Cabiedes &amp; Partners" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #fff;"><svg role="img" aria-label="スペイン国旗" viewBox="0 0 3 2" width="33" height="22" style="position: absolute; top: 6px; left: 6px; outline: 1px solid rgba(0, 0, 0, 0.18);"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg></span></div>
+							<p class="team-name">Cabiedes &amp; Partners <a href="http://www.cabiedesandpartners.com/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-tags"><span style="white-space: nowrap;">#&#8288;ベンチャー投資×サーチファンド投資</span> <span style="white-space: nowrap;">#&#8288;80件超のサーチファンドに出資</span> <span style="white-space: nowrap;">#&#8288;サーチファンドの世界的権威</span></p>
+						</div>
+						<div class="team-card reveal-on-scroll" data-name="SFClub" data-url="https://www.searchfund.club/" data-title="" data-tags="#イタリア初の専門サーチファンド投資会社 #80人超のサーチャーと提携 #長期投資重視" data-img="images/投資家/L.SFClub.png" data-img-width="440" data-img-ratio="6 / 5" data-history="SFClubは、2020年末にEnrico Arietti 氏とRiccardo Triolo 氏によって共同創業された、イタリアを拠点とする初の専門的なサーチファンド投資会社。長期の投資家としてのスタンスを重視する。" data-philosophy="Enrico Arietti 氏は、SFClubの創業者でマネージングパートナー。継続的にサーチファンドへ投資している。Bain &amp; Companyのイタリアと米国で勤務した後、Oaklins Italyのパートナーを務め、イタリア国内外で20件以上のM&amp;A（企業の合併・買収）を成約。Industrial Stars of Italyの発起人として、5案件の上場と企業結合に成功した。INSEAD MBA、公認会計士。Riccardo Triolo 氏は、SFClubのスペシャルアドバイザー。Legacy Partners Search Fundの創業者・マネージングディレクターで、2022年にサーチファンドを通じて企業の買収を実現した。それ以前は、Svinando.comを立ち上げて成長させ、上場企業のItalian Wine Brandsへ売却。イタリアの上場企業、スタートアップ、ベンチャーキャピタルファンドでも勤務した。公認会計士。" data-track="" data-searchfund="" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><span style="position: relative; display: block; width: 100%; height: 100%;"><img src="images/投資家/L-1.SF Club.jpeg" alt="SFClub" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #fff;"><svg role="img" aria-label="イタリア国旗" viewBox="0 0 3 2" width="33" height="22" style="position: absolute; top: 6px; left: 6px; outline: 1px solid rgba(0, 0, 0, 0.18);"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg></span></div>
+							<p class="team-name">SFClub <a href="https://www.searchfund.club/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-tags"><span style="white-space: nowrap;">#&#8288;イタリア初の専門サーチファンド投資会社</span> <span style="white-space: nowrap;">#&#8288;80人超のサーチャーと提携</span> <span style="white-space: nowrap;">#&#8288;長期投資重視</span></p>
+						</div>
+						<div class="team-card reveal-on-scroll" data-name="WayFinder Capital" data-url="https://www.wayfindercapital.com.au/" data-title="共同創業者：Lui Pangiarella 氏 / Akram Sabbagh 氏 / Nima Sedaghat 氏" data-tags="#オーストラリア初のサーチファンド専門ファンド #コミュニティ形成 #初のオセアニア外への投資を実行" data-img="images/投資家/S-1.WayFinder Capital.jpeg" data-img2="images/投資家/S-2.Akram.jpeg" data-history="WayFinder Capitalは、Lui Pangiarella 氏、Akram Sabbagh 氏、Nima Sedaghat 氏の3名によって2020年に共同創業された、オーストラリア初の、サーチファンドとサーチャー主導の買収にのみ投資する機関投資家向けのファンド。サーチファンドとは、起業家が投資家の支援を受けて、企業を探して買収し、経営する仕組み。主力の「WayFinder Searcher Growth Fund」は、約20名超のサーチャーを支援し、最初の5年間で20社のポートフォリオを築くことを目標としている。" data-philosophy="Lui Pangiarella 氏は、15年以上にわたり、事業オーナーや経営者に、M&amp;Aを含む成長戦略を助言してきた。経営者向けのコーチでもあり、オーストラリアのサーチャーのコミュニティづくりに尽力し、多くのサーチャーを買収の成功へ導いてきた。Akram Sabbagh 氏は、20年以上にわたり、中堅企業の成長、買収、ガバナンスに携わってきた。IBMとEYの出身で、事業の立ち上げと売却に成功した経験を持つ。EMCC認定のマスター・プラクティショナー、複数の取締役会の議長、オーストラリア取締役協会の修了生で、サーチャーのメンターとして活動している。Nima Sedaghat 氏は、弁護士と公認会計士の資格を併せ持ち、15年以上にわたり、事業再編、M&amp;A、投資取引を専門としてきた。2017年からオーストラリアのサーチファンド分野に関わり、同国初の伝統的なサーチファンドの組成を戦略面で支えた。" data-track="当社では、Akram Sabbagh 氏がメンターとして就任。また、当社への投資は、WayFinder Capitalにとって初のオセアニア外への投資案件。" data-searchfund="" onclick="openTeamModal(this)">
+							<div class="team-photo-placeholder"><span style="position: relative; display: block; width: 100%; height: 100%;"><img src="images/投資家/S-1.WayFinder Capital.jpeg" alt="WayFinder Capital" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #fff;"><svg role="img" aria-label="オーストラリア国旗" viewBox="0 0 60 40" width="33" height="22" style="position: absolute; top: 6px; left: 6px; outline: 1px solid rgba(0, 0, 0, 0.18);"><rect width="60" height="40" fill="#00008B"/><svg x="0" y="0" width="30" height="20" viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#FFFFFF" stroke-width="3.4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#C8102E" stroke-width="1.4"/><path d="M15,0 V20 M0,10 H30" stroke="#FFFFFF" stroke-width="6"/><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="3.4"/></svg><g fill="#FFFFFF"><polygon points="15.00,24.20 16.06,27.81 19.53,26.38 17.37,29.46 20.65,31.29 16.90,31.52 17.52,35.23 15.00,32.44 12.48,35.23 13.10,31.52 9.35,31.29 12.63,29.46 10.47,26.38 13.94,27.81"/><polygon points="45.00,3.00 45.58,4.99 47.50,4.20 46.31,5.90 48.12,6.91 46.05,7.04 46.39,9.08 45.00,7.54 43.61,9.08 43.95,7.04 41.88,6.91 43.69,5.90 42.50,4.20 44.42,4.99"/><polygon points="45.00,30.40 45.58,32.39 47.50,31.60 46.31,33.30 48.12,34.31 46.05,34.44 46.39,36.48 45.00,34.94 43.61,36.48 43.95,34.44 41.88,34.31 43.69,33.30 42.50,31.60 44.42,32.39"/><polygon points="38.00,17.80 38.58,19.79 40.50,19.00 39.31,20.70 41.12,21.71 39.05,21.84 39.39,23.88 38.00,22.34 36.61,23.88 36.95,21.84 34.88,21.71 36.69,20.70 35.50,19.00 37.42,19.79"/><polygon points="52.00,12.50 52.58,14.49 54.50,13.70 53.31,15.40 55.12,16.41 53.05,16.54 53.39,18.58 52.00,17.04 50.61,18.58 50.95,16.54 48.88,16.41 50.69,15.40 49.50,13.70 51.42,14.49"/><polygon points="49.00,24.20 49.47,25.45 50.81,25.51 49.76,26.35 50.12,27.64 49.00,26.90 47.88,27.64 48.24,26.35 47.19,25.51 48.53,25.45"/></g></svg></span></div>
+							<p class="team-name">WayFinder Capital <a href="https://www.wayfindercapital.com.au/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 0.9em;"></span></a></p>
+							<p class="team-tags"><span style="white-space: nowrap;">#&#8288;オーストラリア初のサーチファンド専門ファンド</span> <span style="white-space: nowrap;">#&#8288;コミュニティ形成</span> <span style="white-space: nowrap;">#&#8288;初のオセアニア外への投資を実行</span></p>
+						</div>
+					</div>
 				</section>
+
+			<!-- Team Modal -->
+				<div id="team-modal" class="team-modal-overlay" onclick="closeTeamModal()">
+					<div class="team-modal-box" onclick="event.stopPropagation()">
+						<button class="team-modal-close" onclick="closeTeamModal()" aria-label="閉じる">&times;</button>
+						<div style="display: flex; gap: 0.8em; justify-content: center; margin: 1.2em 0 1em 0;">
+							<div id="team-modal-photo" class="team-modal-photo"><span class="icon solid fa-user" style="font-size: 3em; color: #0B2F6B;"></span></div>
+							<div id="team-modal-photo2" class="team-modal-photo" style="display: none;"></div>
+						</div>
+						<div style="display: inline-flex; align-items: center; gap: 0.4em;">
+							<h3 id="team-modal-name" style="margin: 0; font-size: 1.2em; color: #0B2F6B; text-transform: none;"></h3>
+							<a id="team-modal-link" href="#" target="_blank" rel="noopener noreferrer" style="display: none; color: #0B2F6B; border-bottom: none;" aria-label="公式サイトを開く"><span class="icon solid fa-link" style="font-size: 1em;"></span></a>
+						</div>
+						<p id="team-modal-title" style="margin: 0.2em 0 0 0; color: #666; font-size: 0.85em;"></p>
+						<p id="team-modal-tags" style="margin: 0.5em 0 1.5em 0; color: #999; font-size: 0.78em; line-height: 1.6; word-break: keep-all;"></p>
+						<div style="text-align: left;">
+							<p id="team-modal-history" style="margin: 0 0 1.3em 0; color: #333f4d; line-height: 1.8; font-size: 0.9em; overflow-wrap: break-word;"></p>
+							<p id="team-modal-philosophy" style="margin: 0 0 1.3em 0; color: #333f4d; line-height: 1.8; font-size: 0.9em; overflow-wrap: break-word;"></p>
+							<p id="team-modal-track" style="margin: 0 0 1.3em 0; color: #333f4d; line-height: 1.8; font-size: 0.9em; overflow-wrap: break-word;"></p>
+							<p id="team-modal-searchfund" style="margin: 0; color: #333f4d; line-height: 1.8; font-size: 0.9em; overflow-wrap: break-word;"></p>
+						</div>
+					</div>
+				</div>
 
 			<!-- Footer -->
 				<footer id="footer" style="background: #005BAA; color: #fff; text-align: center; padding: 3.5em 1.5em;">
@@ -222,6 +595,121 @@
 					}, { threshold: 0.15 });
 					revealEls.forEach(function (el) { observer.observe(el); });
 				});
+				function openTeamModal(card) {
+					var nameEl = document.getElementById('team-modal-name');
+					var linkEl = document.getElementById('team-modal-link');
+					if (card.dataset.nameHtml) {
+						nameEl.innerHTML = card.dataset.nameHtml;
+						linkEl.style.display = 'none';
+					} else {
+						nameEl.textContent = card.dataset.name;
+						if (card.dataset.url) {
+							linkEl.href = card.dataset.url;
+							linkEl.style.display = 'inline';
+						} else {
+							linkEl.style.display = 'none';
+						}
+					}
+					document.getElementById('team-modal-title').innerHTML = card.dataset.title;
+					document.getElementById('team-modal-tags').innerHTML = card.dataset.tags.split(/\s+(?=#)/).map(function (tag) {
+						return '<span style="white-space: nowrap;">' + tag + '</span>';
+					}).join(' ');
+					applyTagBreaks(document.getElementById('team-modal'));
+					document.getElementById('team-modal-history').innerHTML = card.dataset.history;
+					document.getElementById('team-modal-philosophy').innerHTML = card.dataset.philosophy;
+					document.getElementById('team-modal-track').innerHTML = card.dataset.track;
+					document.getElementById('team-modal-searchfund').innerHTML = card.dataset.searchfund;
+					var photoEl = document.getElementById('team-modal-photo');
+					var photo2El = document.getElementById('team-modal-photo2');
+					photoEl.style.maxWidth = '100%';
+					photoEl.style.minWidth = '0';
+					photoEl.style.flexShrink = '1';
+					photo2El.style.maxWidth = '100%';
+					photo2El.style.minWidth = '0';
+					photo2El.style.flexShrink = '1';
+					if (card.dataset.img) {
+						photoEl.style.display = 'flex';
+						if (card.dataset.img2) {
+							photoEl.style.padding = '0';
+							photoEl.style.width = '240px';
+							photoEl.style.aspectRatio = '1 / 1';
+							photoEl.innerHTML = '<img src="' + card.dataset.img + '" alt="' + card.dataset.name + '" style="width: 100%; height: 100%; padding: 1.2em; box-sizing: border-box; object-fit: contain; display: block;">';
+						} else {
+							photoEl.style.padding = '0.8em';
+							photoEl.style.width = '440px';
+							photoEl.style.aspectRatio = 'auto';
+							var imgEl = document.createElement('img');
+							imgEl.alt = card.dataset.name;
+							imgEl.style.cssText = 'width: 100%; height: auto; display: block;';
+							imgEl.onload = function () {
+								if (imgEl.naturalWidth / imgEl.naturalHeight < 1.05) { photoEl.style.width = '320px'; }
+							};
+							imgEl.src = card.dataset.img;
+							photoEl.innerHTML = '';
+							photoEl.appendChild(imgEl);
+						}
+					} else {
+						photoEl.style.display = card.dataset.img2 ? 'none' : 'flex';
+						photoEl.style.padding = '0';
+						photoEl.style.width = '160px';
+						photoEl.style.aspectRatio = '1 / 1';
+						photoEl.innerHTML = '<span class="icon solid fa-user" style="font-size: 3em; color: #0B2F6B;"></span>';
+					}
+					if (card.dataset.img2) {
+						photo2El.style.display = 'flex';
+						photo2El.style.padding = '0';
+						photo2El.style.width = card.dataset.img ? '240px' : '320px';
+						photo2El.style.aspectRatio = '1 / 1';
+						photo2El.innerHTML = '<img src="' + card.dataset.img2 + '" alt="' + card.dataset.name + '" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">';
+					} else {
+						photo2El.style.display = 'none';
+						photo2El.innerHTML = '';
+					}
+					document.getElementById('team-modal').classList.add('is-open');
+					document.querySelector('#team-modal .team-modal-box').scrollTop = 0;
+				}
+				// スマホ表示のとき、ハッシュタグを意味の切れ目（|）でだけ改行させる
+				var TAG_BREAKS = [
+					'#14か国|25社超が投資先', '#35か国|145以上の|サーチファンド支援実績', '#80人超の|サーチャーと提携',
+					'#80件超の|サーチファンドに出資', '#Not a Fund|(自己資金)', '#PEファンドであって|PEファンドに非ず',
+					'#その仕事を、|未来へつなぐ。', '#イタリア初の|専門サーチファンド|投資会社', '#エグゼクティブ・|経営候補人材紹介',
+					'#エンジェル|インベストメント', '#オーストラリア初の|サーチファンド専門ファンド', '#サーチファンド|120件超に投資',
+					'#サーチファンドの|世界的権威', '#サーチファンド|出身経営者', '#サーチャーから|オーナー経営者へ',
+					'#ファミリー出資の|独立系投資グループ', '#ベンチャー投資×|サーチファンド投資', '#不動産から|多角経営',
+					'#事業承継の|実務支援', '#事業承継の|経験者', '#事業承継型の|投資も', '#公認会計士・|税理士',
+					'#出張整備Seibii|創業者', '#初のオセアニア外への|投資を実行', '#創業者が支える|シードVC',
+					'#国内初の|サーチファンド|MBO達成', '#多国籍|サーチファンド投資家', '#弁護士×|元スタートアップCOO',
+					'#承継後1年半で|売上2倍', '#日本サーチファンドの|草分け', '#日本初の|Fund of Search Funds',
+					'#日本初の|サーチファンド|支援機関', '#日本最大の|サーチファンドEXIT|経験者', '#東証一部上場を|果たした|創業経営者',
+					'#次世代|リーダー育成', '#環境エネルギー|コンサルティング', '#草の根|アントレプレナー支援',
+					'#財務診断の|プロフェッショナル', '#超長期で|経営者に伴走'
+				];
+				var TAG_BREAK_MAP = {};
+				TAG_BREAKS.forEach(function (t) { TAG_BREAK_MAP[t.replace(/\|/g, '')] = t.split('|'); });
+				function applyTagBreaks(root) {
+					if (!window.matchMedia('(max-width: 840px)').matches) return;
+					root.querySelectorAll('.team-tags > span, #team-modal-tags > span').forEach(function (span) {
+						var key = span.textContent.replace(/\u2060/g, '').trim();
+						var parts = TAG_BREAK_MAP[key];
+						if (!parts) return;
+						span.innerHTML = parts.map(function (p, i) {
+							var s = p.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+							return '<span class="tag-chunk">' + (i === 0 ? s.replace('#', '#&#8288;') : s) + '</span>';
+						}).join('');
+					});
+					// 肩書の「：」より後ろ（人名）は途中で改行しない
+					root.querySelectorAll('.team-title, #team-modal-title').forEach(function (el) {
+						if (el.children.length || el.textContent.indexOf('：') < 0) return;
+						var i = el.textContent.indexOf('：') + 1;
+						el.innerHTML = el.textContent.slice(0, i) + el.textContent.slice(i).split(' / ').map(function (n) {
+							return '<span style="display: inline-block; white-space: nowrap;">' + n + '</span>';
+						}).join(' / ');
+					});
+				}
+				document.addEventListener('DOMContentLoaded', function () { applyTagBreaks(document); });
+				function closeTeamModal() {
+					document.getElementById('team-modal').classList.remove('is-open');
+				}
 			</script>
 
 	</body>
